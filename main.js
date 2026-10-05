@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Hero Signature Animations (GSAP)
   function initHeroAnimations() {
-    if (typeof gsap === 'undefined') return;
+    if (typeof gsap === 'undefined' || !document.querySelector('.hero-section')) return;
 
     // Steam & floating particles
     const particleContainer = document.getElementById('heroParticles');

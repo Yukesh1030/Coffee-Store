@@ -25,10 +25,6 @@
         <a href="Contact.html" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="cart-badge">0</span>
-        </a>
         <a href="Login.html" class="btn-nav-login">Login</a>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
           <span class="hamburger-line"></span>
@@ -51,7 +47,6 @@
     </div>
     <div class="mobile-actions">
       <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
-      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
     </div>
   </aside>
 
@@ -325,31 +320,16 @@
       }
     });
 
-    // Add To Cart
-    document.getElementById('detailAddToCartBtn').addEventListener('click', function() {
-      const item = {
-        id: 'p-ethiopia',
-        name: 'Ethiopia Yirgacheffe',
-        price: selectedPrice,
-        weight: selectedWeight,
-        grind: selectedGrind,
-        image: 'assets/ethiopia.webp'
-      };
-      addToCart(item, currentQty, this);
+    // Add To Cart — Redirect to 404 page
+    document.getElementById('detailAddToCartBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '404.html';
     });
 
-    // Buy Now
-    document.getElementById('detailBuyNowBtn').addEventListener('click', function() {
-      const item = {
-        id: 'p-ethiopia',
-        name: 'Ethiopia Yirgacheffe',
-        price: selectedPrice,
-        weight: selectedWeight,
-        grind: selectedGrind,
-        image: 'assets/ethiopia.webp'
-      };
-      addToCart(item, currentQty, this);
-      window.location.href = 'cart.html';
+    // Buy Now — Redirect to 404 page
+    document.getElementById('detailBuyNowBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '404.html';
     });
 
     // Tabs toggle

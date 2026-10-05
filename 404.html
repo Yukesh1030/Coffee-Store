@@ -7,6 +7,28 @@
   <meta name="description" content="The page you are looking for has been moved, extracted, or does not exist. Return home or head back to specialty coffee.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Guaranteed visibility and styling for 404 action buttons */
+    #btnBack, #btnBackHome {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+    .action-buttons-wrap {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+  </style>
 </head>
 <body class="section-dark" style="min-height: 100vh; display: flex; flex-direction: column;">
 
@@ -24,10 +46,6 @@
         <a href="Contact.html" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="cart-badge">0</span>
-        </a>
         <a href="Login.html" class="btn btn-nav-login">Login</a>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">
           <span class="hamburger-line"></span>
@@ -54,26 +72,26 @@
   </aside>
 
   <!-- 404 Main Area -->
-  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 80px; position: relative; overflow: hidden;">
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: calc(var(--header-height) + 20px) 20px 50px; position: relative; overflow: hidden;">
     <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(184, 115, 51, 0.12) 0%, rgba(28, 23, 20, 0.95) 75%); z-index: 1;"></div>
     
     <div class="container" style="position: relative; z-index: 2; text-align: center; max-width: 680px;">
-      <div id="errorIllustration" style="margin-bottom: 24px; position: relative; display: inline-block;">
-        <img src="assets/error-404.webp" alt="Spilled Coffee" style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 3px solid var(--color-copper); box-shadow: 0 15px 40px rgba(0,0,0,0.6); margin: 0 auto;">
-        <div style="position: absolute; top: -15px; right: -15px; background: var(--color-copper); color: #fff; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+      <div id="errorIllustration" style="margin-bottom: 20px; position: relative; display: inline-block;">
+        <img src="assets/error-404.webp" alt="Spilled Coffee" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 3px solid var(--color-copper); box-shadow: 0 15px 40px rgba(0,0,0,0.6); margin: 0 auto; display: block;">
+        <div style="position: absolute; top: -12px; right: -12px; background: var(--color-copper); color: #fff; font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
           404
         </div>
       </div>
 
       <span class="section-label" style="justify-content: center;">Extraction Interrupted</span>
-      <h1 class="section-title text-cream" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 16px;">
+      <h1 class="section-title text-cream" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-bottom: 14px;">
         Looks Like This Cup Spilled
       </h1>
-      <p class="section-subtitle" style="margin: 0 auto 36px; color: var(--color-text-light-muted);">
+      <p class="section-subtitle" style="margin: 0 auto 30px; color: var(--color-text-light-muted); max-width: 540px;">
         The page you are looking for may have been ground too fine, relocated to another shelf, or is still waiting to be brewed.
       </p>
 
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <div class="action-buttons-wrap">
         <button onclick="history.back()" class="btn btn-outline-cream" id="btnBack">
           <i class="fa-solid fa-arrow-left"></i> Back
         </button>
@@ -97,32 +115,41 @@
   <script src="cart.js"></script>
   <script src="main.js"></script>
   <script>
-    // GSAP 404 Animations
-    if (typeof gsap !== 'undefined') {
-      gsap.from('#errorIllustration', {
-        duration: 1.2,
-        scale: 0.7,
-        rotation: -10,
-        opacity: 0,
-        ease: 'elastic.out(1, 0.6)'
-      });
-      gsap.from('.section-title, .section-subtitle, .section-label', {
-        duration: 0.8,
-        y: 30,
-        opacity: 0,
-        stagger: 0.15,
-        delay: 0.3,
-        ease: 'power3.out'
-      });
-      gsap.from('#btnBack, #btnBackHome', {
-        duration: 0.6,
-        y: 20,
-        opacity: 0,
-        stagger: 0.15,
-        delay: 0.6,
-        ease: 'back.out(1.7)'
-      });
-    }
+    // Robust 404 Animations without opacity glitch
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnBack = document.getElementById('btnBack');
+      const btnBackHome = document.getElementById('btnBackHome');
+
+      // Guarantee buttons are visible immediately
+      if (btnBack) { btnBack.style.opacity = '1'; btnBack.style.visibility = 'visible'; }
+      if (btnBackHome) { btnBackHome.style.opacity = '1'; btnBackHome.style.visibility = 'visible'; }
+
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo('#errorIllustration', 
+          { scale: 0.85, opacity: 0, rotation: -6 },
+          { duration: 0.8, scale: 1, opacity: 1, rotation: 0, ease: 'power2.out', clearProps: 'transform,opacity' }
+        );
+
+        gsap.fromTo('.section-title, .section-subtitle, .section-label', 
+          { y: 20, opacity: 0 },
+          { duration: 0.6, y: 0, opacity: 1, stagger: 0.1, delay: 0.15, ease: 'power2.out', clearProps: 'transform,opacity' }
+        );
+
+        // fromTo ensures animation smoothly finishes and clears inline props
+        gsap.fromTo(['#btnBack', '#btnBackHome'], 
+          { y: 15, opacity: 0 },
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 0.5, 
+            stagger: 0.1, 
+            delay: 0.25, 
+            ease: 'power2.out',
+            clearProps: 'opacity,transform,visibility'
+          }
+        );
+      }
+    });
   </script>
 </body>
 </html>

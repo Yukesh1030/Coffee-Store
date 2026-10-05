@@ -27,32 +27,9 @@ function saveCart(cart) {
   }
 }
 
-// Add item to Cart
+// Add item to Cart — Redirects to 404 page
 function addToCart(item, quantity = 1, sourceElement = null) {
-  const cart = getCart();
-  const existingIndex = cart.findIndex(p => p.id === item.id && p.grind === (item.grind || 'Whole Bean'));
-
-  if (existingIndex > -1) {
-    cart[existingIndex].quantity += quantity;
-  } else {
-    cart.push({
-      id: item.id || 'item-' + Date.now(),
-      name: item.name || 'Signature Coffee',
-      price: Number(item.price) || 680,
-      weight: item.weight || '250g',
-      grind: item.grind || 'Whole Bean',
-      image: item.image || 'assets/midnight-roast.webp',
-      quantity: quantity
-    });
-  }
-
-  saveCart(cart);
-
-  if (sourceElement && typeof gsap !== 'undefined') {
-    flyToCart(sourceElement, item.image);
-  }
-
-  showToast(`Added "${item.name}" to your cart.`);
+  window.location.href = '404.html';
 }
 
 // Update item quantity
@@ -198,21 +175,17 @@ function toggleWishlist(item, buttonEl = null) {
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
+  try {
+    localStorage.removeItem(CART_STORAGE_KEY);
+  } catch (e) {}
+
   updateCartBadges();
 
-  // Attach quick add buttons
+  // Attach quick add buttons — Redirect directly to 404 page
   document.querySelectorAll('[data-quick-add]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const product = {
-        id: btn.dataset.id || 'prod-' + Math.floor(Math.random()*1000),
-        name: btn.dataset.name || 'Specialty Coffee',
-        price: Number(btn.dataset.price) || 680,
-        weight: btn.dataset.weight || '250g',
-        image: btn.dataset.image || 'assets/midnight-roast.webp',
-        grind: 'Whole Bean'
-      };
-      addToCart(product, 1, btn);
+      window.location.href = '404.html';
     });
   });
 });
