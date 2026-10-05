@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Brew Not Found | STACKLY COFFEE</title>
+  <meta name="description" content="The page you are looking for has been moved, extracted, or does not exist. Return home or head back to specialty coffee.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="section-dark" style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Login</a>
+    </div>
+  </aside>
+
+  <!-- 404 Main Area -->
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 80px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(184, 115, 51, 0.12) 0%, rgba(28, 23, 20, 0.95) 75%); z-index: 1;"></div>
+    
+    <div class="container" style="position: relative; z-index: 2; text-align: center; max-width: 680px;">
+      <div id="errorIllustration" style="margin-bottom: 24px; position: relative; display: inline-block;">
+        <img src="assets/error-404.webp" alt="Spilled Coffee" style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 3px solid var(--color-copper); box-shadow: 0 15px 40px rgba(0,0,0,0.6); margin: 0 auto;">
+        <div style="position: absolute; top: -15px; right: -15px; background: var(--color-copper); color: #fff; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+          404
+        </div>
+      </div>
+
+      <span class="section-label" style="justify-content: center;">Extraction Interrupted</span>
+      <h1 class="section-title text-cream" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 16px;">
+        Looks Like This Cup Spilled
+      </h1>
+      <p class="section-subtitle" style="margin: 0 auto 36px; color: var(--color-text-light-muted);">
+        The page you are looking for may have been ground too fine, relocated to another shelf, or is still waiting to be brewed.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="history.back()" class="btn btn-outline-cream" id="btnBack">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <a href="index.html" class="btn btn-copper" id="btnBackHome">
+          <i class="fa-solid fa-house"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 40px 0 20px;">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border-top: none; padding-top: 0; justify-content: center;">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // GSAP 404 Animations
+    if (typeof gsap !== 'undefined') {
+      gsap.from('#errorIllustration', {
+        duration: 1.2,
+        scale: 0.7,
+        rotation: -10,
+        opacity: 0,
+        ease: 'elastic.out(1, 0.6)'
+      });
+      gsap.from('.section-title, .section-subtitle, .section-label', {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        stagger: 0.15,
+        delay: 0.3,
+        ease: 'power3.out'
+      });
+      gsap.from('#btnBack, #btnBackHome', {
+        duration: 0.6,
+        y: 20,
+        opacity: 0,
+        stagger: 0.15,
+        delay: 0.6,
+        ease: 'back.out(1.7)'
+      });
+    }
+  </script>
+</body>
+</html>

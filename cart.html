@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — STACKLY COFFEE</title>
+  <meta name="description" content="Review your fresh roasted coffees, select grind options, and proceed to secure checkout.">
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn active" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
+    </div>
+  </aside>
+
+  <main style="padding-top: var(--header-height); min-height: 80vh;">
+    <div class="container">
+      
+      <div style="padding: 40px 0 20px;">
+        <span class="section-label">Your Selection</span>
+        <h1 style="font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--color-espresso);">
+          Shopping Cart
+        </h1>
+      </div>
+
+      <div class="cart-layout" id="cartContentArea">
+        <!-- Left Table -->
+        <div style="overflow-x: auto;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>PRODUCT</th>
+                <th>WEIGHT / GRIND</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>TOTAL</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="cartTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 14px;">
+            <a href="Shop.html" class="btn btn-outline-cream btn-sm" style="color: var(--color-espresso); border-color: rgba(28,23,20,0.2);">
+              <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+            </a>
+            <button id="clearCartBtn" class="btn btn-sm" style="color: #ef4444; background: rgba(239, 68, 68, 0.1);">
+              <i class="fa-regular fa-trash-can"></i> Clear Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Summary -->
+        <div class="cart-summary-box">
+          <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 20px;">
+            Order Summary
+          </h3>
+
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal" style="font-weight: 600; color: var(--color-espresso);">₹0</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Freshness Packaging</span>
+            <span style="color: #10b981; font-weight: 600;">Complimentary</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="summaryShipping" style="font-weight: 600;">₹99</span>
+          </div>
+          <p id="freeShippingNotice" style="font-size: 0.78rem; color: var(--color-copper); margin-top: -6px; margin-bottom: 14px;">
+            Free shipping on orders above ₹999
+          </p>
+
+          <div class="summary-row summary-total">
+            <span>Total Amount</span>
+            <span id="summaryTotal" style="color: var(--color-copper);">₹0</span>
+          </div>
+
+          <button id="checkoutBtn" class="btn btn-copper" style="width: 100%; margin-top: 24px;">
+            PROCEED TO CHECKOUT
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="cartEmptyState" style="display: none; text-align: center; padding: 80px 20px;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(184, 115, 51, 0.12); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 20px;">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <h2 style="font-family: var(--font-display); font-size: 2.4rem; color: var(--color-espresso); margin-bottom: 12px;">
+          Your Cart is Empty
+        </h2>
+        <p style="color: var(--color-text-muted); max-width: 480px; margin: 0 auto 28px;">
+          Looks like you haven't selected any fresh roasts or gear yet. Explore our single origin collections or signature espresso blends.
+        </p>
+        <a href="Shop.html" class="btn btn-copper">
+          <i class="fa-solid fa-mug-hot"></i> EXPLORE FRESH ROASTS
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Checkout Modal (Simulated Checkout) -->
+  <div id="checkoutModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #fff; border-radius: 20px; max-width: 500px; width: 100%; padding: 36px 30px; text-align: center; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.3);">
+      <div style="width: 60px; height: 60px; border-radius: 50%; background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px;">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-espresso); margin-bottom: 8px;">Order Placed Successfully!</h3>
+      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+        Order <strong style="color: var(--color-copper);">#ORD-1025</strong> has been confirmed. Your beans will be micro-roasted and degassed before dispatch.
+      </p>
+      <div style="background: #faf8f5; border-radius: 10px; padding: 14px; margin-bottom: 24px; text-align: left; font-size: 0.88rem;">
+        <p><strong>Estimated Delivery:</strong> Oct 09, 2026</p>
+        <p><strong>Fulfillment Roastery:</strong> STACKLY Central Hub</p>
+      </div>
+      <button id="closeCheckoutModalBtn" class="btn btn-copper" style="width: 100%;">
+        VIEW ORDER IN CLIENT DASHBOARD
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          </a>
+          <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
+          <div class="footer-social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Single Origin Reserve</a></li>
+            <li><a href="404.html">Artisan Dark Blends</a></li>
+            <li><a href="404.html">Cold Brew Packs</a></li>
+            <li><a href="404.html">Drip Bag Sets</a></li>
+            <li><a href="404.html">Roaster's Club Subscription</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Café & Craft</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Brewing Guides</a></li>
+            <li><a href="404.html">Wholesale Partnerships</a></li>
+            <li><a href="404.html">Barista Workshops</a></li>
+            <li><a href="404.html">Private Tasting Events</a></li>
+            <li><a href="404.html">Sustainability Report</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    function renderCartTable() {
+      const cart = getCart();
+      const tbody = document.getElementById('cartTableBody');
+      const contentArea = document.getElementById('cartContentArea');
+      const emptyState = document.getElementById('cartEmptyState');
+
+      if (!cart || cart.length === 0) {
+        contentArea.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      contentArea.style.display = 'grid';
+      emptyState.style.display = 'none';
+
+      tbody.innerHTML = cart.map(item => `
+        <tr>
+          <td>
+            <div class="cart-item-flex">
+              <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+              <div>
+                <h4 style="font-weight: 600; font-size: 1rem; color: var(--color-espresso);">${item.name}</h4>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted);">SCA Specialty Grade</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-weight: 500;">${item.weight}</span>
+            <span style="display: block; font-size: 0.78rem; color: var(--color-copper);">${item.grind || 'Whole Bean'}</span>
+          </td>
+          <td style="font-weight: 600;">₹${item.price}</td>
+          <td>
+            <div class="quantity-control">
+              <button class="qty-btn" onclick="updateQty('${item.id}', '${item.grind || 'Whole Bean'}', -1)"><i class="fa-solid fa-minus"></i></button>
+              <span class="qty-val">${item.quantity}</span>
+              <button class="qty-btn" onclick="updateQty('${item.id}', '${item.grind || 'Whole Bean'}', 1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </td>
+          <td style="font-weight: 700; color: var(--color-copper);">₹${item.price * item.quantity}</td>
+          <td>
+            <button onclick="removeItem('${item.id}', '${item.grind || 'Whole Bean'}')" style="color: #999; font-size: 1rem;" title="Remove item">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      // Totals
+      const subtotal = getCartSubtotal();
+      const shipping = subtotal >= 999 || subtotal === 0 ? 0 : 99;
+      const total = subtotal + shipping;
+
+      document.getElementById('summarySubtotal').textContent = `₹${subtotal}`;
+      document.getElementById('summaryShipping').textContent = shipping === 0 ? 'FREE' : `₹${shipping}`;
+      document.getElementById('summaryTotal').textContent = `₹${total}`;
+
+      const notice = document.getElementById('freeShippingNotice');
+      if (subtotal >= 999) {
+        notice.textContent = '🎉 You qualified for Free Express Shipping!';
+        notice.style.color = '#10b981';
+      } else {
+        notice.textContent = `Add ₹${999 - subtotal} more for Free Shipping`;
+        notice.style.color = 'var(--color-copper)';
+      }
+    }
+
+    function updateQty(id, grind, delta) {
+      updateQuantity(id, grind, delta);
+      renderCartTable();
+    }
+
+    function removeItem(id, grind) {
+      removeFromCart(id, grind);
+      renderCartTable();
+    }
+
+    document.getElementById('clearCartBtn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear your cart?')) {
+        clearCart();
+        renderCartTable();
+      }
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      document.getElementById('checkoutModal').style.display = 'flex';
+      clearCart();
+    });
+
+    document.getElementById('closeCheckoutModalBtn').addEventListener('click', () => {
+      window.location.href = 'ClientDashboard.html';
+    });
+
+    // Initial render
+    renderCartTable();
+  </script>
+</body>
+</html>

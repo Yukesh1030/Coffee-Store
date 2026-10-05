@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — STACKLY COFFEE</title>
+  <meta name="description" content="Manage your specialty coffee subscriptions, track live roast deliveries, and view curated coffee recommendations.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <!-- Sidebar: 5 Main Menus -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo-box">
+        <a href="index.html">
+          <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
+        </a>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="#dashboard" class="sidebar-link active"><i class="fa-solid fa-house-chimney"></i> Dashboard</a>
+        <a href="#orders" class="sidebar-link"><i class="fa-solid fa-box-open"></i> My Orders</a>
+        <a href="#wishlist" class="sidebar-link"><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="#messages" class="sidebar-link"><i class="fa-solid fa-envelope"></i> Messages</a>
+        <a href="#settings" class="sidebar-link"><i class="fa-solid fa-sliders"></i> Settings</a>
+      </nav>
+      <div style="padding-top: 20px; border-top: 1px solid var(--color-espresso-border);">
+        <a href="index.html" class="sidebar-link"><i class="fa-solid fa-mug-saucer"></i> Explore Store</a>
+        <a href="Login.html" class="sidebar-link" style="color: #ef4444;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div>
+          <span class="section-label" style="margin-bottom: 4px;">Welcome Back</span>
+          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Client Dashboard</h1>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="cart.html" class="cart-icon-btn" style="background: #fff; border: 1px solid #ddd; color: #111;">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge">0</span>
+          </a>
+          <div style="display: flex; align-items: center; gap: 10px; background: #fff; padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid rgba(28,23,20,0.1);">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--color-espresso); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+              C
+            </div>
+            <div>
+              <p style="font-size: 0.85rem; font-weight: 600; color: var(--color-espresso); line-height: 1.2;">Valued Connoisseur</p>
+              <p style="font-size: 0.72rem; color: var(--color-copper); text-transform: uppercase;">STACKLY Club Member</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Three KPI Cards -->
+      <section class="kpi-cards-grid">
+        <div class="kpi-card">
+          <p class="kpi-card-label">ACTIVE ORDER</p>
+          <p class="kpi-card-value text-copper" style="font-size: 1.8rem;">Midnight Roast</p>
+          <span style="font-size: 0.8rem; color: var(--color-text-muted);">Dark Roast • Whole Bean (500g)</span>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">STATUS</p>
+          <p class="kpi-card-value" style="font-size: 1.8rem; color: #0284c7;">Out for Delivery</p>
+          <span style="font-size: 0.8rem; color: #0284c7;"><i class="fa-solid fa-truck-fast"></i> With local courier partner</span>
+        </div>
+        <div class="kpi-card">
+          <p class="kpi-card-label">EXPECTED DELIVERY</p>
+          <p class="kpi-card-value" style="font-size: 1.8rem; color: var(--color-espresso);">Oct 08, 2026</p>
+          <span style="font-size: 0.8rem; color: #10b981;"><i class="fa-solid fa-circle-check"></i> On schedule</span>
+        </div>
+      </section>
+
+      <!-- My Orders -->
+      <section class="dashboard-card" id="orders">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h2 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-espresso);">
+            <i class="fa-solid fa-bag-shopping text-copper"></i> My Orders
+          </h2>
+          <span style="font-size: 0.82rem; color: var(--color-text-muted);">Showing recent shipments</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px; background: #faf8f5; border-radius: 12px; border: 1px solid rgba(28,23,20,0.06); flex-wrap: wrap; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="assets/midnight-roast.webp" alt="Midnight Roast" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
+            <div>
+              <h4 style="font-weight: 600; font-size: 1.05rem; color: var(--color-espresso);">Midnight Roast Blend</h4>
+              <p style="font-size: 0.85rem; color: var(--color-copper); font-weight: 700;">₹720 • <span style="color: #666; font-weight: 400;">#ORD-1024</span></p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span class="status-badge" style="background: #e0f2fe; color: #0369a1; padding: 6px 14px;">Out for Delivery</span>
+            <a href="404.html" class="btn btn-sm btn-copper">View Details</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two Column: Recommended & Messages -->
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;">
+        <!-- Recommended Based on Purchases -->
+        <section class="dashboard-card">
+          <div style="margin-bottom: 20px;">
+            <span class="section-label" style="font-size: 0.72rem;">Curated For You</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.45rem; color: var(--color-espresso);">
+              Recommended Coffees
+            </h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-radius: 10px; background: #fff; border: 1px solid #eee;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="assets/ethiopia.webp" alt="Ethiopia" style="width: 48px; height: 48px; border-radius: 6px; object-fit: cover;">
+                <div>
+                  <h4 style="font-weight: 600; font-size: 0.95rem;">Ethiopia Yirgacheffe</h4>
+                  <p style="font-size: 0.8rem; color: var(--color-copper); font-weight: 700;">₹680</p>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-outline-copper" data-quick-add data-id="p-ethiopia" data-name="Ethiopia Yirgacheffe" data-price="680" data-image="assets/ethiopia.webp">Add to Cart</button>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-radius: 10px; background: #fff; border: 1px solid #eee;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="assets/house-blend.webp" alt="House Espresso" style="width: 48px; height: 48px; border-radius: 6px; object-fit: cover;">
+                <div>
+                  <h4 style="font-weight: 600; font-size: 0.95rem;">House Espresso</h4>
+                  <p style="font-size: 0.8rem; color: var(--color-copper); font-weight: 700;">₹620</p>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-outline-copper" data-quick-add data-id="p-house" data-name="House Espresso" data-price="620" data-image="assets/house-blend.webp">Add to Cart</button>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-radius: 10px; background: #fff; border: 1px solid #eee;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="assets/cold-brew.webp" alt="Cold Brew Blend" style="width: 48px; height: 48px; border-radius: 6px; object-fit: cover;">
+                <div>
+                  <h4 style="font-weight: 600; font-size: 0.95rem;">Cold Brew Blend</h4>
+                  <p style="font-size: 0.8rem; color: var(--color-copper); font-weight: 700;">₹740</p>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-outline-copper" data-quick-add data-id="p-coldbrew" data-name="Cold Brew Blend" data-price="740" data-image="assets/cold-brew.webp">Add to Cart</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Messages & Notifications -->
+        <section class="dashboard-card" id="messages">
+          <div style="margin-bottom: 20px;">
+            <span class="section-label" style="font-size: 0.72rem;">Notifications</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.45rem; color: var(--color-espresso);">
+              Messages
+            </h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="padding: 14px; background: #f0fdf4; border-left: 3px solid #16a34a; border-radius: 6px;">
+              <h4 style="font-weight: 600; font-size: 0.92rem; color: #166534;">Order #1024 Dispatched</h4>
+              <p style="font-size: 0.85rem; color: #15803d; margin-top: 4px;">Your coffee has been freshly roasted, degassed, and shipped via express courier.</p>
+            </div>
+
+            <div style="padding: 14px; background: #fffbeb; border-left: 3px solid #d97706; border-radius: 6px;">
+              <h4 style="font-weight: 600; font-size: 0.92rem; color: #92400e;">New Roast Release</h4>
+              <p style="font-size: 0.85rem; color: #b45309; margin-top: 4px;">Our micro-lot Kenya Nyeri collection is now available for member tastings.</p>
+            </div>
+
+            <div style="padding: 14px; background: #f8fafc; border-left: 3px solid #64748b; border-radius: 6px;">
+              <h4 style="font-weight: 600; font-size: 0.92rem; color: #334155;">Review Request</h4>
+              <p style="font-size: 0.85rem; color: #475569; margin-top: 4px;">How was your recent pour-over ritual with the Ethiopia Yirgacheffe?</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethiopia Yirgacheffe — STACKLY COFFEE</title>
+  <meta name="description" content="Handpicked high-altitude Ethiopia Yirgacheffe specialty coffee. Floral jasmine aromatics, citrus zest, and raw wild honey finish.">
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link active">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link active">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
+    </div>
+  </aside>
+
+  <main style="padding-top: var(--header-height);">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav style="padding: 24px 0 10px; font-size: 0.85rem; color: var(--color-text-muted);">
+        <a href="index.html">Home</a> &nbsp;/&nbsp; 
+        <a href="Shop.html">Shop</a> &nbsp;/&nbsp; 
+        <span style="color: var(--color-espresso); font-weight: 600;">Ethiopia Yirgacheffe</span>
+      </nav>
+
+      <!-- Main Product Grid -->
+      <div class="product-detail-grid">
+        <!-- Gallery Left -->
+        <div class="product-detail-gallery">
+          <img src="assets/ethiopia.webp" alt="Ethiopia Yirgacheffe" id="mainDetailImg" class="product-detail-main-img">
+          <div class="product-detail-thumbs">
+            <img src="assets/ethiopia.webp" alt="Thumbnail 1" class="detail-thumb active" onclick="switchDetailImg('assets/ethiopia.webp', this)">
+            <img src="assets/pour-over.webp" alt="Thumbnail 2" class="detail-thumb" onclick="switchDetailImg('assets/pour-over.webp', this)">
+            <img src="assets/coffee-beans.webp" alt="Thumbnail 3" class="detail-thumb" onclick="switchDetailImg('assets/coffee-beans.webp', this)">
+            <img src="assets/roasting-process.webp" alt="Thumbnail 4" class="detail-thumb" onclick="switchDetailImg('assets/roasting-process.webp', this)">
+          </div>
+        </div>
+
+        <!-- Info Right -->
+        <div>
+          <span class="section-label">Micro-Lot Reserve</span>
+          <h1 id="productTitle" style="font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.4rem); color: var(--color-espresso); line-height: 1.1; margin-bottom: 8px;">
+            ETHIOPIA YIRGACHEFFE
+          </h1>
+          <p style="font-size: 1.1rem; color: var(--color-copper); font-weight: 600; margin-bottom: 16px;">
+            Floral • Citrus • Wild Honey
+          </p>
+
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px;">
+            <span id="detailPrice" style="font-size: 2.2rem; font-weight: 700; color: var(--color-espresso);">₹680</span>
+            <span style="font-size: 0.85rem; color: #10b981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> In Stock (Fresh Roast)</span>
+          </div>
+
+          <!-- Roast Level Indicator -->
+          <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(28,23,20,0.08);">
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 8px;">
+              <span>Roast Level</span>
+              <span style="color: var(--color-copper);">Light Roast (●●○○○)</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <span style="width: 20%; height: 6px; background: var(--color-copper); border-radius: 3px;"></span>
+              <span style="width: 20%; height: 6px; background: var(--color-copper); border-radius: 3px;"></span>
+              <span style="width: 20%; height: 6px; background: #e5e5e5; border-radius: 3px;"></span>
+              <span style="width: 20%; height: 6px; background: #e5e5e5; border-radius: 3px;"></span>
+              <span style="width: 20%; height: 6px; background: #e5e5e5; border-radius: 3px;"></span>
+            </div>
+          </div>
+
+          <!-- Weight Selector -->
+          <div style="margin-bottom: 24px;">
+            <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 10px;">Select Weight</label>
+            <div style="display: flex; gap: 12px;">
+              <button class="grind-btn active weight-btn" data-weight="250g" data-price="680">250g</button>
+              <button class="grind-btn weight-btn" data-weight="500g" data-price="1280">500g</button>
+              <button class="grind-btn weight-btn" data-weight="1kg" data-price="2400">1kg</button>
+            </div>
+          </div>
+
+          <!-- Grind Selector -->
+          <div style="margin-bottom: 28px;">
+            <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 10px;">Choose Grind</label>
+            <div class="grind-options-grid">
+              <button class="grind-btn active grind-choice" data-grind="Whole Bean">Whole Bean</button>
+              <button class="grind-btn grind-choice" data-grind="Espresso">Espresso</button>
+              <button class="grind-btn grind-choice" data-grind="Filter">Filter / V60</button>
+            </div>
+          </div>
+
+          <!-- Quantity & CTA Group -->
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap;">
+            <div class="quantity-control">
+              <button class="qty-btn" id="qtyMinus"><i class="fa-solid fa-minus"></i></button>
+              <span class="qty-val" id="qtyDisplay">1</span>
+              <button class="qty-btn" id="qtyPlus"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <button class="btn btn-copper" id="detailAddToCartBtn" style="flex-grow: 1;">
+              <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+            </button>
+            <button class="btn btn-espresso" id="detailBuyNowBtn">
+              BUY NOW
+            </button>
+          </div>
+
+          <!-- Quick Perks -->
+          <div style="background: rgba(28,23,20,0.03); border-radius: 8px; padding: 16px; font-size: 0.85rem; color: var(--color-text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div><i class="fa-solid fa-fire text-copper"></i> Roasted within 48 hours</div>
+            <div><i class="fa-solid fa-truck-fast text-copper"></i> Free shipping over ₹999</div>
+            <div><i class="fa-solid fa-certificate text-copper"></i> SCA 88+ Cup Score</div>
+            <div><i class="fa-solid fa-box text-copper"></i> Degassing valve bag</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Details Tabs -->
+      <section style="margin: 60px 0 100px;">
+        <div style="border-bottom: 2px solid rgba(28,23,20,0.1); display: flex; gap: 30px; margin-bottom: 30px; overflow-x: auto;">
+          <button class="tab-toggle active" data-tab="tab-tasting" style="font-family: var(--font-display); font-size: 1.35rem; padding-bottom: 12px; font-weight: 600; color: var(--color-espresso); border-bottom: 2px solid var(--color-copper); margin-bottom: -2px;">
+            Tasting Notes
+          </button>
+          <button class="tab-toggle" data-tab="tab-origin" style="font-family: var(--font-display); font-size: 1.35rem; padding-bottom: 12px; font-weight: 600; color: var(--color-text-muted);">
+            Origin & Farm
+          </button>
+          <button class="tab-toggle" data-tab="tab-brew" style="font-family: var(--font-display); font-size: 1.35rem; padding-bottom: 12px; font-weight: 600; color: var(--color-text-muted);">
+            Brewing Guide
+          </button>
+          <button class="tab-toggle" data-tab="tab-reviews" style="font-family: var(--font-display); font-size: 1.35rem; padding-bottom: 12px; font-weight: 600; color: var(--color-text-muted);">
+            Reviews (24)
+          </button>
+        </div>
+
+        <div id="tab-tasting" class="tab-content" style="display: block;">
+          <h4 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 12px;">Sensory Experience</h4>
+          <p style="color: var(--color-text-muted); line-height: 1.7; max-width: 800px; margin-bottom: 16px;">
+            Upon grinding, an intense bouquet of crushed white jasmine, bergamot oil, and elderflower fills the air. The hot extraction starts with lively acidity reminiscent of blood orange and lemon curd, before cooling into a velvety cup saturated with wildflower honey and dried peach.
+          </p>
+        </div>
+
+        <div id="tab-origin" class="tab-content" style="display: none;">
+          <h4 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 12px;">The Yirgacheffe Region</h4>
+          <p style="color: var(--color-text-muted); line-height: 1.7; max-width: 800px;">
+            Located in the Gedeo Zone of southern Ethiopia at altitudes exceeding 1,950 meters. The cool mountain nights allow coffee cherries to mature slowly, concentrating natural fructose and organic phosphoric acids. Grown primarily by smallholders on ancestral forest garden plots.
+          </p>
+        </div>
+
+        <div id="tab-brew" class="tab-content" style="display: none;">
+          <h4 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 12px;">Recommended V60 Pour Over Recipe</h4>
+          <ul style="color: var(--color-text-muted); line-height: 1.8; list-style: disc; padding-left: 20px;">
+            <li><strong>Dose:</strong> 15g medium-fine ground coffee</li>
+            <li><strong>Water:</strong> 250g soft filtered water at 93°C</li>
+            <li><strong>Ratio:</strong> 1:16.6</li>
+            <li><strong>Bloom:</strong> 45g water, gently swirl, wait 45 seconds</li>
+            <li><strong>Total Brew Time:</strong> 2 minutes 45 seconds</li>
+          </ul>
+        </div>
+
+        <div id="tab-reviews" class="tab-content" style="display: none;">
+          <h4 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 12px;">Customer Feedback</h4>
+          <div style="display: flex; flex-direction: column; gap: 16px; max-width: 750px;">
+            <div style="padding: 16px; background: #fff; border-radius: 8px; border: 1px solid rgba(28,23,20,0.06);">
+              <div style="color: var(--color-copper); font-size: 0.85rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p style="font-weight: 600; font-size: 0.95rem;">Unbelievable floral clarity!</p>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-top: 4px;">“Brewed on my Chemex this morning. The aroma is pure perfume. Absolutely ordering the 1kg bag next time.”</p>
+              <span style="font-size: 0.78rem; color: #888; margin-top: 6px; display: inline-block;">— Rahul K. (Verified Purchase)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          </a>
+          <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
+          <div class="footer-social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Single Origin Reserve</a></li>
+            <li><a href="404.html">Artisan Dark Blends</a></li>
+            <li><a href="404.html">Cold Brew Packs</a></li>
+            <li><a href="404.html">Drip Bag Sets</a></li>
+            <li><a href="404.html">Roaster's Club Subscription</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Café & Craft</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Brewing Guides</a></li>
+            <li><a href="404.html">Wholesale Partnerships</a></li>
+            <li><a href="404.html">Barista Workshops</a></li>
+            <li><a href="404.html">Private Tasting Events</a></li>
+            <li><a href="404.html">Sustainability Report</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    let currentQty = 1;
+    let selectedWeight = '250g';
+    let selectedPrice = 680;
+    let selectedGrind = 'Whole Bean';
+
+    function switchDetailImg(src, thumbEl) {
+      document.getElementById('mainDetailImg').src = src;
+      document.querySelectorAll('.detail-thumb').forEach(el => el.classList.remove('active'));
+      thumbEl.classList.add('active');
+    }
+
+    // Weight selection
+    document.querySelectorAll('.weight-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.weight-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedWeight = btn.dataset.weight;
+        selectedPrice = Number(btn.dataset.price);
+        document.getElementById('detailPrice').textContent = `₹${selectedPrice}`;
+      });
+    });
+
+    // Grind selection
+    document.querySelectorAll('.grind-choice').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.grind-choice').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedGrind = btn.dataset.grind;
+      });
+    });
+
+    // Quantity Counter
+    document.getElementById('qtyPlus').addEventListener('click', () => {
+      currentQty++;
+      document.getElementById('qtyDisplay').textContent = currentQty;
+    });
+
+    document.getElementById('qtyMinus').addEventListener('click', () => {
+      if (currentQty > 1) {
+        currentQty--;
+        document.getElementById('qtyDisplay').textContent = currentQty;
+      }
+    });
+
+    // Add To Cart
+    document.getElementById('detailAddToCartBtn').addEventListener('click', function() {
+      const item = {
+        id: 'p-ethiopia',
+        name: 'Ethiopia Yirgacheffe',
+        price: selectedPrice,
+        weight: selectedWeight,
+        grind: selectedGrind,
+        image: 'assets/ethiopia.webp'
+      };
+      addToCart(item, currentQty, this);
+    });
+
+    // Buy Now
+    document.getElementById('detailBuyNowBtn').addEventListener('click', function() {
+      const item = {
+        id: 'p-ethiopia',
+        name: 'Ethiopia Yirgacheffe',
+        price: selectedPrice,
+        weight: selectedWeight,
+        grind: selectedGrind,
+        image: 'assets/ethiopia.webp'
+      };
+      addToCart(item, currentQty, this);
+      window.location.href = 'cart.html';
+    });
+
+    // Tabs toggle
+    document.querySelectorAll('.tab-toggle').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-toggle').forEach(t => {
+          t.classList.remove('active');
+          t.style.color = 'var(--color-text-muted)';
+          t.style.borderBottom = 'none';
+        });
+        document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+
+        tab.classList.add('active');
+        tab.style.color = 'var(--color-espresso)';
+        tab.style.borderBottom = '2px solid var(--color-copper)';
+        document.getElementById(tab.dataset.tab).style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>

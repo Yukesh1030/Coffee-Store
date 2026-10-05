@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Café Locations — STACKLY COFFEE</title>
+  <meta name="description" content="Visit our specialty cafés in Bengaluru, Hyderabad, Chennai, and Coimbatore or get in touch for coffee consultations, wholesale, and inquiries.">
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link active">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- 01 Contact Hero -->
+    <section class="page-hero">
+      <img src="assets/contact-hero.webp" alt="Contact Hero" class="page-hero-bg">
+      <div class="page-hero-content">
+        <span class="section-label" style="justify-content: center;">We Love Connecting</span>
+        <h1 class="section-title text-cream" style="font-size: clamp(2.8rem, 6vw, 4.8rem);">
+          Let's Talk Coffee.
+        </h1>
+        <p class="section-subtitle" style="margin: 0 auto; color: var(--color-cream-soft);">
+          Have a question about our roasts, brewing equipment, or wholesale partnerships? Reach out or visit one of our branch cafés.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 & 03 Branch Offices & Café Information -->
+    <section class="section" style="background: var(--color-cream);">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 50px;">
+          <span class="section-label" style="justify-content: center;">Our Locations</span>
+          <h2 class="section-title">Our Branch Offices & Cafés</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Drop in for a fresh tasting flight, barista training, or direct roast pickup.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+          
+          <!-- Bengaluru Branch Office -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 32px 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(184, 115, 51, 0.12); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 12px;">
+              Bengaluru Branch Office
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1;">
+              Evolve Studio, 4th Floor,<br>
+              Khata No 10, Begur – Koppa Rd,<br>
+              in front of SNN Raj Serenity,<br>
+              Suraksha Nagar, Yelenahalli, Begur,<br>
+              Bengaluru, Karnataka – 560068
+            </p>
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(28,23,20,0.08); font-size: 0.85rem; color: var(--color-copper); font-weight: 600;">
+              <i class="fa-regular fa-clock"></i> Mon – Sun: 7:30 AM – 10:00 PM
+            </div>
+          </div>
+
+          <!-- Hyderabad Branch Office -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 32px 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(184, 115, 51, 0.12); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 12px;">
+              Hyderabad Branch Office
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1;">
+              STACKLY, 4th floor, Jayasudha heights,<br>
+              Plot no 459, 100 feet road,<br>
+              Ayyappa society,<br>
+              Madhapur, Beside YSR statue,<br>
+              Hyderabad, Telangana – 500081
+            </p>
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(28,23,20,0.08); font-size: 0.85rem; color: var(--color-copper); font-weight: 600;">
+              <i class="fa-regular fa-clock"></i> Mon – Sun: 8:00 AM – 10:30 PM
+            </div>
+          </div>
+
+          <!-- Chennai Branch Office -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 32px 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(184, 115, 51, 0.12); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 12px;">
+              Chennai Branch Office
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1;">
+              No.9, Ambika Complex, 1st Floor,<br>
+              Gokulam Colony,<br>
+              Karanaipudhuchery main road,<br>
+              Urapakkam, Chennai,<br>
+              Tamil Nadu, India – 603202
+            </p>
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(28,23,20,0.08); font-size: 0.85rem; color: var(--color-copper); font-weight: 600;">
+              <i class="fa-regular fa-clock"></i> Mon – Sun: 7:00 AM – 9:30 PM
+            </div>
+          </div>
+
+          <!-- Coimbatore Branch Office -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 32px 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(184, 115, 51, 0.12); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 12px;">
+              Coimbatore Branch Office
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1;">
+              Stackly, 79 Aiswarya Complex,<br>
+              Nethaji Road, PN Palayam,<br>
+              Coimbatore,<br>
+              Tamil Nadu, India – 641037
+            </p>
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(28,23,20,0.08); font-size: 0.85rem; color: var(--color-copper); font-weight: 600;">
+              <i class="fa-regular fa-clock"></i> Mon – Sun: 7:30 AM – 9:30 PM
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 & 05 Contact Details & Form Grid -->
+    <section class="section" style="background: var(--color-cream-soft);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(40px, 6vw, 70px); align-items: flex-start;">
+          
+          <!-- Contact Details Left -->
+          <div>
+            <span class="section-label">Direct Communication</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle" style="margin-bottom: 30px;">
+              Whether you are an aspiring home barista or an enterprise looking for office coffee subscriptions, our dedicated roasters are ready to assist.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; gap: 16px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-espresso); color: var(--color-cream); display: flex; align-items: center; justify-content: center;">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--color-text-muted);">Direct Line</h4>
+                  <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-espresso);">+91 98765 43210</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 16px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-espresso); color: var(--color-cream); display: flex; align-items: center; justify-content: center;">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--color-text-muted);">Email Inquiries</h4>
+                  <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-espresso);">hello@stacklycoffee.com</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 16px; align-items: center;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-espresso); color: var(--color-cream); display: flex; align-items: center; justify-content: center;">
+                  <i class="fa-solid fa-truck-ramp-box"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--color-text-muted);">Wholesale Orders</h4>
+                  <p style="font-size: 1.1rem; font-weight: 600; color: var(--color-espresso);">wholesale@stacklycoffee.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Right -->
+          <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: clamp(28px, 4vw, 44px); box-shadow: var(--shadow-md); border: 1px solid rgba(28,23,20,0.06);">
+            <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px; color: var(--color-espresso);">
+              Send Us A Message
+            </h3>
+
+            <form id="contactForm" novalidate>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="auth-form-group">
+                  <label for="contactName">Name *</label>
+                  <input type="text" id="contactName" class="auth-input" placeholder="Your full name" style="padding-left: 14px;" required>
+                </div>
+                <div class="auth-form-group">
+                  <label for="contactEmail">Email *</label>
+                  <input type="email" id="contactEmail" class="auth-input" placeholder="email@address.com" style="padding-left: 14px;" required>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="auth-form-group">
+                  <label for="contactPhone">Phone *</label>
+                  <input type="tel" id="contactPhone" class="auth-input" placeholder="+91..." style="padding-left: 14px;" required>
+                </div>
+                <div class="auth-form-group">
+                  <label for="contactSubject">Subject *</label>
+                  <input type="text" id="contactSubject" class="auth-input" placeholder="Roast inquiry, wholesale..." style="padding-left: 14px;" required>
+                </div>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="contactMessage">Message *</label>
+                <textarea id="contactMessage" rows="5" class="auth-input" placeholder="Tell us how we can help your coffee journey..." style="padding: 12px 14px; resize: vertical;" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-copper" style="width: 100%;">
+                <i class="fa-regular fa-paper-plane"></i> SEND MESSAGE
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 FAQ Section -->
+    <section class="section" style="background: var(--color-cream);">
+      <div class="container" style="max-width: 850px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="section-label" style="justify-content: center;">Common Inquiries</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <details style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid rgba(28,23,20,0.08); cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; color: var(--color-espresso);">How fresh will my roasted coffee beans be?</summary>
+            <p style="color: var(--color-text-muted); margin-top: 10px; line-height: 1.6;">
+              We roast daily in micro-batches. Your order is dispatched within 24 to 48 hours of roasting, reaching you during peak degassing freshness (days 4 through 28 post-roast).
+            </p>
+          </details>
+
+          <details style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid rgba(28,23,20,0.08); cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; color: var(--color-espresso);">Can I have my beans ground for my specific coffee maker?</summary>
+            <p style="color: var(--color-text-muted); margin-top: 10px; line-height: 1.6;">
+              Yes! You can choose between Whole Bean, Espresso, and Filter / V60 upon ordering. If you have custom requirements (like AeroPress fine or Cold Brew coarse), simply leave a note during checkout.
+            </p>
+          </details>
+
+          <details style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid rgba(28,23,20,0.08); cursor: pointer;">
+            <summary style="font-weight: 600; font-size: 1.1rem; color: var(--color-espresso);">Do you provide coffee machine equipment and beans for corporate offices?</summary>
+            <p style="color: var(--color-text-muted); margin-top: 10px; line-height: 1.6;">
+              Absolutely. We provide end-to-end commercial solutions including Synesso espresso machinery, Mahlkönig commercial grinders, and weekly nitrogen-flushed bean deliveries across India.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          </a>
+          <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
+          <div class="footer-social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Single Origin Reserve</a></li>
+            <li><a href="404.html">Artisan Dark Blends</a></li>
+            <li><a href="404.html">Cold Brew Packs</a></li>
+            <li><a href="404.html">Drip Bag Sets</a></li>
+            <li><a href="404.html">Roaster's Club Subscription</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Café & Craft</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Brewing Guides</a></li>
+            <li><a href="404.html">Wholesale Partnerships</a></li>
+            <li><a href="404.html">Barista Workshops</a></li>
+            <li><a href="404.html">Private Tasting Events</a></li>
+            <li><a href="404.html">Sustainability Report</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

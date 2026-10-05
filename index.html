@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY COFFEE — Brewed With Intention | Premium Specialty Roasters</title>
+  <meta name="description" content="Artisan specialty coffee roastery and café. Single origins, precision small-batch roasts, and handcrafted brewing equipment delivered to your cup.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="assets/Brand-logo.webp" alt="STACKLY" class="preloader-logo">
+    <div class="preloader-steam-container">
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+    </div>
+  </div>
+
+  <!-- Header & Navbar (Exactly 5 Navigation Links + Brand Logo + Cart + Login) -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link active">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
+    </div>
+  </aside>
+
+  <main id="mainContent">
+    <!-- Hero Section (Full-screen Cinematic Coffee Image & GSAP Entrance) -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-container">
+        <img src="assets/cover-image-index.webp" alt="Cinematic Coffee Craft" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-est">EST. 2026</p>
+        <h1 class="hero-headline">
+          <span>BREWED</span>
+          <span>WITH</span>
+          <span class="accent-italic">INTENTION.</span>
+        </h1>
+        <p class="hero-description">
+          Specialty coffee crafted from exceptional origins. Slow roasted with patience, precision, and passion.
+        </p>
+        <div class="hero-cta-group">
+          <a href="Menu.html" class="btn btn-copper">EXPLORE MENU</a>
+          <a href="Shop.html" class="btn btn-outline-cream">SHOP COFFEE</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- Section 7: Signature Coffee ("Your Daily Ritual" - Split Editorial) -->
+    <section class="section signature-section">
+      <div class="container">
+        <div class="signature-grid">
+          <div class="signature-img-wrapper">
+            <span class="signature-badge">SIGNATURE BLEND</span>
+            <img src="assets/midnight-roast.webp" alt="Midnight Roast Signature Blend" class="signature-img">
+          </div>
+          <div class="signature-content">
+            <span class="section-label">Your Daily Ritual</span>
+            <h2 class="section-title text-cream">MIDNIGHT ROAST</h2>
+            
+            <div class="flavor-notes-list">
+              <span class="flavor-note-pill"><i class="fa-solid fa-circle-dot"></i> Dark Chocolate</span>
+              <span class="flavor-note-pill"><i class="fa-solid fa-circle-dot"></i> Salted Caramel</span>
+              <span class="flavor-note-pill"><i class="fa-solid fa-circle-dot"></i> Roasted Almond</span>
+            </div>
+
+            <p class="section-subtitle">
+              A balanced, deeply aromatic espresso blend created for slow mornings and long conversations. Crafted from high-grown Arabica lots, roasted to dark perfection to bring forward dense crema and rich chocolate undertones.
+            </p>
+
+            <div style="display: flex; align-items: center; gap: 20px; margin-top: 24px;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: var(--color-copper);">₹680 <span style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-light-muted);">/ 250g</span></span>
+              <a href="product-detail.html" class="btn btn-copper">DISCOVER THE BLEND</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Coffee Menu ("Made For Every Mood" - Hover Image Reveal) -->
+    <section class="section menu-preview-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 50px;">
+          <span class="section-label" style="justify-content: center;">Crafted Drinks</span>
+          <h2 class="section-title">Made For Every Mood</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Hover over any drink to reveal its extraction profile and visual aesthetic.
+          </p>
+        </div>
+
+        <div class="menu-preview-grid">
+          <div class="menu-items-list">
+            <div class="menu-preview-item active" data-img="assets/espresso.webp">
+              <div class="menu-item-info">
+                <h4>Double Espresso</h4>
+                <p>Concentrated double shot • 9 bars pressure • Rich tiger crema</p>
+              </div>
+              <span class="menu-item-price">₹160</span>
+            </div>
+
+            <div class="menu-preview-item" data-img="assets/cappuccino.webp">
+              <div class="menu-item-info">
+                <h4>Cappuccino</h4>
+                <p>Silky espresso • Equal parts textured milk & dense micro-foam</p>
+              </div>
+              <span class="menu-item-price">₹220</span>
+            </div>
+
+            <div class="menu-preview-item" data-img="assets/caramel-latte.webp">
+              <div class="menu-item-info">
+                <h4>Caramel Latte</h4>
+                <p>Steamed whole milk • Artisanal burnt caramel syrup • Double espresso</p>
+              </div>
+              <span class="menu-item-price">₹240</span>
+            </div>
+
+            <div class="menu-preview-item" data-img="assets/cold-brew.webp">
+              <div class="menu-item-info">
+                <h4>Cold Brew</h4>
+                <p>18-hour cold steeped single origin • Smooth, sweet & zero astringency</p>
+              </div>
+              <span class="menu-item-price">₹260</span>
+            </div>
+
+            <div class="menu-preview-item" data-img="assets/filter-coffee.webp">
+              <div class="menu-item-info">
+                <h4>Filter Coffee</h4>
+                <p>Hand-poured V60 single origin • High clarity & floral aromatics</p>
+              </div>
+              <span class="menu-item-price">₹190</span>
+            </div>
+
+            <div class="menu-preview-item" data-img="assets/mocha.webp">
+              <div class="menu-item-info">
+                <h4>Caffè Mocha</h4>
+                <p>Single origin dark cocoa ganache • Espresso • Velvety milk</p>
+              </div>
+              <span class="menu-item-price">₹250</span>
+            </div>
+          </div>
+
+          <div class="menu-preview-image-box">
+            <img src="assets/espresso.webp" alt="Menu Preview" id="menuPreviewImg" class="menu-preview-img">
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="Menu.html" class="btn btn-espresso">VIEW FULL MENU</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Coffee Collection ("Explore Our Beans") -->
+    <section class="section collection-section">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="section-label">Single Origin & Blends</span>
+            <h2 class="section-title">Explore Our Beans</h2>
+            <p class="section-subtitle">Roasted weekly to ensure peak degassing and flavor vibrancy.</p>
+          </div>
+          <a href="Shop.html" class="btn btn-outline-copper">VIEW ALL BEANS →</a>
+        </div>
+
+        <div class="product-grid">
+          <!-- Ethiopia Yirgacheffe -->
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag">Single Origin</span>
+              <button class="product-wishlist-btn" onclick="toggleWishlist({id:'p-ethiopia', name:'Ethiopia Yirgacheffe', price:680, image:'assets/ethiopia.webp'}, this)" aria-label="Add to wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <img src="assets/ethiopia.webp" alt="Ethiopia Yirgacheffe" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Ethiopia • Yirgacheffe</p>
+              <h3 class="product-title"><a href="product-detail.html">Ethiopia Yirgacheffe</a></h3>
+              <p class="product-notes">Floral • Citrus • Wild Honey</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g</span>
+                <span class="product-price">₹680</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-ethiopia" data-name="Ethiopia Yirgacheffe" data-price="680" data-image="assets/ethiopia.webp">
+                  <i class="fa-solid fa-plus"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Colombia Huila -->
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag">Single Origin</span>
+              <button class="product-wishlist-btn" onclick="toggleWishlist({id:'p-colombia', name:'Colombia Huila', price:720, image:'assets/colombia.webp'}, this)" aria-label="Add to wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <img src="assets/colombia.webp" alt="Colombia Huila" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Colombia • Huila</p>
+              <h3 class="product-title"><a href="product-detail.html">Colombia Huila</a></h3>
+              <p class="product-notes">Caramel • Red Fruit • Chocolate</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g</span>
+                <span class="product-price">₹720</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-colombia" data-name="Colombia Huila" data-price="720" data-image="assets/colombia.webp">
+                  <i class="fa-solid fa-plus"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Brazil Santos -->
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag">Estate Roast</span>
+              <button class="product-wishlist-btn" onclick="toggleWishlist({id:'p-brazil', name:'Brazil Santos', price:640, image:'assets/brazil.webp'}, this)" aria-label="Add to wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <img src="assets/brazil.webp" alt="Brazil Santos" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Brazil • Cerrado</p>
+              <h3 class="product-title"><a href="product-detail.html">Brazil Santos</a></h3>
+              <p class="product-notes">Hazelnut • Cocoa • Low Acidity</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g</span>
+                <span class="product-price">₹640</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-brazil" data-name="Brazil Santos" data-price="640" data-image="assets/brazil.webp">
+                  <i class="fa-solid fa-plus"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Kenya Nyeri -->
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag">Micro-Lot</span>
+              <button class="product-wishlist-btn" onclick="toggleWishlist({id:'p-kenya', name:'Kenya Nyeri', price:760, image:'assets/kenya.webp'}, this)" aria-label="Add to wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <img src="assets/kenya.webp" alt="Kenya Nyeri" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Kenya • Nyeri Hills</p>
+              <h3 class="product-title"><a href="product-detail.html">Kenya Nyeri</a></h3>
+              <p class="product-notes">Blackcurrant • Grapefruit • Sugarcane</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g</span>
+                <span class="product-price">₹760</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-kenya" data-name="Kenya Nyeri" data-price="760" data-image="assets/kenya.webp">
+                  <i class="fa-solid fa-plus"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Interactive Roasting Story ("From Green Bean To Perfect Roast") -->
+    <section class="section roasting-story-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+          <span class="section-label" style="justify-content: center;">Artisan Process</span>
+          <h2 class="section-title text-cream">From Green Bean To Perfect Roast</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Explore the five defining phases that elevate our raw coffee cherries into liquid excellence.
+          </p>
+        </div>
+
+        <!-- Timeline Nav -->
+        <div class="roasting-timeline-nav">
+          <div class="roasting-timeline-line"></div>
+          <div class="roasting-timeline-progress" id="roastProgress" style="width: 0%;"></div>
+          <button class="roast-step-btn active" data-step="0">01</button>
+          <button class="roast-step-btn" data-step="1">02</button>
+          <button class="roast-step-btn" data-step="2">03</button>
+          <button class="roast-step-btn" data-step="3">04</button>
+          <button class="roast-step-btn" data-step="4">05</button>
+        </div>
+
+        <!-- Interactive Display Card -->
+        <div class="roasting-card-display">
+          <div class="roast-img-container">
+            <img src="assets/source-beans.webp" alt="Roasting Step" id="roastStepImg">
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+              <span id="roastStepNumber" style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--color-copper);">01</span>
+              <span id="roastStepBadge" style="background: rgba(184, 115, 51, 0.2); color: var(--color-copper); padding: 4px 14px; border-radius: var(--radius-pill); font-size: 0.78rem; text-transform: uppercase; font-weight: 600;">Single Origin Lots</span>
+            </div>
+            <h3 id="roastStepTitle" style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-cream); margin-bottom: 16px;">
+              Ethical Sourcing
+            </h3>
+            <p id="roastStepDesc" style="color: var(--color-text-light-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+              Selected directly from altitude-blessed smallholder estates across Yirgacheffe, Huila, and Minas Gerais. Every single green bean meets Specialty Coffee Association (SCA) 86+ standards.
+            </p>
+            <a href="About.html" class="btn btn-outline-copper btn-sm">LEARN OUR PHILOSOPHY</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Coffee Origin ("Every Bean Has A Story") -->
+    <section class="section origin-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+          <span class="section-label" style="justify-content: center;">Terroir & Microclimates</span>
+          <h2 class="section-title">Every Bean Has A Story</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Click each region to discover how altitude, soil volcanic composition, and heirloom varietals shape the cup profile.
+          </p>
+        </div>
+
+        <div class="origin-tabs">
+          <button class="origin-tab-btn active" data-origin="ethiopia">ETHIOPIA (1,800m)</button>
+          <button class="origin-tab-btn" data-origin="colombia">COLOMBIA (1,600m)</button>
+          <button class="origin-tab-btn" data-origin="brazil">BRAZIL (1,200m)</button>
+        </div>
+
+        <div class="origin-display-card">
+          <div style="height: 380px; border-radius: var(--radius-md); overflow: hidden;">
+            <img src="assets/ethiopia.webp" alt="Origin Country" id="originImg" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <span class="section-label" style="margin-bottom: 6px;">Origin Deep-Dive</span>
+            <h3 id="originTitle" style="font-family: var(--font-display); font-size: 2.4rem; color: var(--color-espresso); margin-bottom: 8px;">
+              Ethiopia Yirgacheffe
+            </h3>
+            <p id="originDesc" style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.65;">
+              Grown in high-altitude volcanic soils of southern Ethiopia. Celebrated globally for its jasmine-like perfume and tea-like elegance that transforms everyday mornings into meditation.
+            </p>
+
+            <div class="origin-specs-grid">
+              <div class="spec-item">
+                <h5>Altitude</h5>
+                <p id="originAltitude">1,800m - 2,200m</p>
+              </div>
+              <div class="spec-item">
+                <h5>Processing</h5>
+                <p id="originProcess">Washed / Sun</p>
+              </div>
+              <div class="spec-item">
+                <h5>Varietal</h5>
+                <p id="originVariety">Heirloom</p>
+              </div>
+            </div>
+
+            <p style="font-size: 0.9rem; margin-bottom: 24px;">
+              <strong>Key Flavor Notes:</strong> <span id="originNotes" style="color: var(--color-copper); font-weight: 600;">Floral, Bergamot, Wild Honey, Apricot</span>
+            </p>
+
+            <a href="Shop.html" class="btn btn-copper">EXPLORE ORIGIN LOTS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Best Sellers ("Most Loved Brews") -->
+    <section class="section" style="background: var(--color-cream-soft);">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 50px;">
+          <span class="section-label" style="justify-content: center;">Community Favorites</span>
+          <h2 class="section-title">Most Loved Brews</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Our bestselling roasts, loved by home baristas and coffee veterans alike.</p>
+        </div>
+
+        <div class="product-grid" style="margin-top: 0;">
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag" style="background: var(--color-copper);">#1 Best Seller</span>
+              <img src="assets/midnight-roast.webp" alt="Midnight Roast" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Signature Blend</p>
+              <h3 class="product-title"><a href="product-detail.html">Midnight Roast</a></h3>
+              <p class="product-notes">Dark Roast • Dark Cocoa & Caramel</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g / 500g</span>
+                <span class="product-price">₹680</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-midnight" data-name="Midnight Roast" data-price="680" data-image="assets/midnight-roast.webp">
+                  <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag" style="background: var(--color-copper);">#2 Best Seller</span>
+              <img src="assets/ethiopia.webp" alt="Ethiopia Yirgacheffe" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Single Origin</p>
+              <h3 class="product-title"><a href="product-detail.html">Ethiopia Yirgacheffe</a></h3>
+              <p class="product-notes">Light-Medium • Jasmine & Bergamot</p>
+              <div class="product-meta-row">
+                <span class="product-weight">250g</span>
+                <span class="product-price">₹680</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-ethiopia" data-name="Ethiopia Yirgacheffe" data-price="680" data-image="assets/ethiopia.webp">
+                  <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-top">
+              <span class="product-tag" style="background: var(--color-copper);">#3 Best Seller</span>
+              <img src="assets/cold-brew.webp" alt="Cold Brew Pack" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <p class="product-origin">Ready Steep Bags</p>
+              <h3 class="product-title"><a href="product-detail.html">Cold Brew Blend</a></h3>
+              <p class="product-notes">Coarse Grind • Smooth Chocolate</p>
+              <div class="product-meta-row">
+                <span class="product-weight">Pack of 4</span>
+                <span class="product-price">₹740</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-copper btn-sm" data-quick-add data-id="p-coldbrew" data-name="Cold Brew Blend" data-price="740" data-image="assets/cold-brew.webp">
+                  <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
+                </button>
+                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 13: Café Experience ("More Than Coffee") -->
+    <section class="section cafe-experience-section">
+      <img src="assets/cafe-interior.webp" alt="Café Interior" class="cafe-exp-bg" loading="lazy">
+      <div class="container" style="position: relative; z-index: 2; text-align: center; max-width: 800px;">
+        <span class="section-label" style="justify-content: center;">Space & Hospitality</span>
+        <h2 class="section-title text-cream" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+          More Than Coffee
+        </h2>
+        <p class="section-subtitle" style="margin: 0 auto 36px; font-size: 1.25rem; color: var(--color-cream-soft);">
+          A place to slow down, meet someone, or simply enjoy your own company. Step into the warm embrace of our roastery café, where wood, espresso steam, and thoughtful music converge.
+        </p>
+        <a href="Contact.html" class="btn btn-copper">VISIT OUR CAFÉ</a>
+      </div>
+    </section>
+
+    <!-- Section 14: Coffee Brewing Guide ("Brew It Your Way") -->
+    <section class="section" style="background: var(--color-cream);">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 40px;">
+          <span class="section-label" style="justify-content: center;">Master The Extraction</span>
+          <h2 class="section-title">Brew It Your Way</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Select the brewing method tailored to your daily mood and ritual.</p>
+        </div>
+
+        <div class="brewing-guide-grid">
+          <div class="brewing-card">
+            <div class="brewing-icon"><i class="fa-solid fa-mug-hot"></i></div>
+            <h4 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px;">Espresso</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Strong, concentrated, syrupy body crowned with thick golden crema.</p>
+          </div>
+
+          <div class="brewing-card">
+            <div class="brewing-icon"><i class="fa-solid fa-filter"></i></div>
+            <h4 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px;">Pour Over</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Clean, aromatic, and tea-like clarity highlighting floral notes.</p>
+          </div>
+
+          <div class="brewing-card">
+            <div class="brewing-icon"><i class="fa-solid fa-blender"></i></div>
+            <h4 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px;">French Press</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Rich, full-bodied immersion with velvety natural coffee oils.</p>
+          </div>
+
+          <div class="brewing-card">
+            <div class="brewing-icon"><i class="fa-solid fa-glass-water"></i></div>
+            <h4 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px;">Cold Brew</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Slow 18-hour cold steep with deep chocolate sweetness and zero bite.</p>
+          </div>
+
+          <div class="brewing-card">
+            <div class="brewing-icon"><i class="fa-solid fa-flask"></i></div>
+            <h4 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px;">AeroPress</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted);">Bright, balanced, versatile pressure extraction on the go.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 15: Why STACKLY Coffee ("What Makes Our Coffee Different?") -->
+    <section class="section" style="background: var(--color-espresso); color: var(--color-cream);">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 50px;">
+          <span class="section-label" style="justify-content: center;">The STACKLY Difference</span>
+          <h2 class="section-title text-cream">What Makes Our Coffee Different?</h2>
+          <p class="section-subtitle" style="margin: 0 auto; color: var(--color-text-light-muted);">
+            Four uncompromising pillars that guide every harvest, roast, and pour.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px;">
+          <div style="background: var(--color-espresso-surface); border: 1px solid var(--color-espresso-border); border-radius: 12px; padding: 30px 24px; text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184, 115, 51, 0.15); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Carefully Sourced</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-light-muted);">Beans hand-selected from trusted high-altitude estates with transparent pricing.</p>
+          </div>
+
+          <div style="background: var(--color-espresso-surface); border: 1px solid var(--color-espresso-border); border-radius: 12px; padding: 30px 24px; text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184, 115, 51, 0.15); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Freshly Roasted</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-light-muted);">Small-batch drum roasted to order to capture optimum degassing windows.</p>
+          </div>
+
+          <div style="background: var(--color-espresso-surface); border: 1px solid var(--color-espresso-border); border-radius: 12px; padding: 30px 24px; text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184, 115, 51, 0.15); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Thoughtfully Crafted</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-light-muted);">Every roast curve and grind setting calibrated for true sensory balance.</p>
+          </div>
+
+          <div style="background: var(--color-espresso-surface); border: 1px solid var(--color-espresso-border); border-radius: 12px; padding: 30px 24px; text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(184, 115, 51, 0.15); color: var(--color-copper); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Quality First</h4>
+            <p style="font-size: 0.88rem; color: var(--color-text-light-muted);">SCA 86+ benchmark with zero compromises from cherry picking to extraction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 16: Customer Reviews ("Loved By Coffee People") -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 40px;">
+          <span class="section-label" style="justify-content: center;">Testimonials</span>
+          <h2 class="section-title">Loved By Coffee People</h2>
+        </div>
+
+        <div class="testimonial-card-editorial">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p class="testimonial-quote">
+            “The Ethiopia roast has completely changed my morning routine. Delicate floral aromatics that bloom like jasmine, paired with the cleanest citrus finish I’ve ever tasted.”
+          </p>
+          <p class="testimonial-author">— Priya R., Specialty Coffee Enthusiast</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 17: Coffee Statistics -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div>
+            <p class="stat-number" data-count="50" data-suffix="K+">50K+</p>
+            <p class="stat-label">CUPS BREWED</p>
+          </div>
+          <div>
+            <p class="stat-number" data-count="12" data-suffix="+">12+</p>
+            <p class="stat-label">COFFEE ORIGINS</p>
+          </div>
+          <div>
+            <p class="stat-number" data-count="18">18</p>
+            <p class="stat-label">SIGNATURE DRINKS</p>
+          </div>
+          <div>
+            <p class="stat-number" data-count="4.9" data-decimals="1" data-suffix="/5">4.9/5</p>
+            <p class="stat-label">CUSTOMER RATING</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 18: Brand Statement -->
+    <section class="brand-statement-section">
+      <div class="container">
+        <blockquote class="brand-statement-text">
+          <span>GOOD COFFEE</span>
+          <span>STARTS WITH</span>
+          <span class="statement-highlight">GOOD BEANS.</span>
+          <span style="margin-top: 24px;">GREAT COFFEE</span>
+          <span>STARTS WITH</span>
+          <span class="statement-highlight">CARE.</span>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Section 19: Newsletter ("Stay In The Brew") -->
+    <section class="section newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <span class="section-label" style="justify-content: center;">Exclusive Roasts & Guides</span>
+          <h2 class="section-title text-cream" style="font-size: clamp(2rem, 4vw, 3rem);">Stay In The Brew</h2>
+          <p class="section-subtitle" style="margin: 0 auto; color: var(--color-text-light-muted);">
+            Receive notifications on micro-lot releases, seasonal café tasting sessions, private events, and barista brewing tips.
+          </p>
+
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+            <button type="submit" class="btn btn-copper">JOIN THE LIST</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Brand Logo + Quick Links + 2 Sections + Social Icons -> 404 links) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          </a>
+          <p>
+            STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links (To Main Pages) -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Signature Collections (All to 404 as requested) -->
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Single Origin Reserve</a></li>
+            <li><a href="404.html">Artisan Dark Blends</a></li>
+            <li><a href="404.html">Cold Brew Packs</a></li>
+            <li><a href="404.html">Drip Bag Sets</a></li>
+            <li><a href="404.html">Roaster's Club Subscription</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Roastery & Craft (All to 404 as requested) -->
+        <div class="footer-column">
+          <h4>Café & Craft</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Brewing Guides</a></li>
+            <li><a href="404.html">Wholesale Partnerships</a></li>
+            <li><a href="404.html">Barista Workshops</a></li>
+            <li><a href="404.html">Private Tasting Events</a></li>
+            <li><a href="404.html">Sustainability Report</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

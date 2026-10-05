@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account — STACKLY COFFEE</title>
+  <meta name="description" content="Join STACKLY today to unlock fresh bean roasts, member tastings, and fast coffee reordering.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="auth-page">
+
+  <!-- Header with Back to Home & Brand Logo -->
+  <header class="auth-header">
+    <a href="index.html" class="auth-back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+    <a href="index.html">
+      <img src="assets/Brand-logo.webp" alt="STACKLY" class="auth-logo">
+    </a>
+  </header>
+
+  <!-- Auth Card Container -->
+  <main class="auth-card-container">
+    <div class="auth-card">
+      <h1 class="auth-title">Create an Account</h1>
+      <p class="auth-subtitle">Join STACKLY today</p>
+
+      <form id="signupForm" novalidate>
+        <!-- Sign Up As Field -->
+        <div class="auth-form-group">
+          <label for="signupAs">Sign Up As</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <select id="signupAs" class="auth-select" required>
+              <option value="Client" selected>Client</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Full Name Field -->
+        <div class="auth-form-group">
+          <label for="signupName">Full Name</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <input type="text" id="signupName" class="auth-input" placeholder="John Doe" required autocomplete="name">
+          </div>
+        </div>
+
+        <!-- Email Address Field -->
+        <div class="auth-form-group">
+          <label for="signupEmail">Email Address</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-envelope auth-input-icon"></i>
+            <input type="email" id="signupEmail" class="auth-input" placeholder="user@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="auth-form-group">
+          <label for="signupPassword">Password</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-solid fa-lock auth-input-icon"></i>
+            <input type="password" id="signupPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+            <span class="password-toggle-btn" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="auth-submit-btn">Sign Up</button>
+      </form>
+
+      <!-- Switch to Login -->
+      <p class="auth-switch-text">
+        Already have an account? <a href="Login.html">Login here</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

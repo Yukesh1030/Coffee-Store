@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Menu — STACKLY COFFEE</title>
+  <meta name="description" content="Explore our artisanal coffee menu featuring single origin espresso, slow pour-overs, chilled brews, and freshly baked café treats.">
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+      </a>
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link active">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Menu.html" class="mobile-link active">Menu <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-actions">
+      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+      <a href="cart.html" class="btn btn-outline-cream" style="width: 100%;">View Cart</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- 01 Menu Hero -->
+    <section class="page-hero">
+      <img src="assets/menu-hero.webp" alt="Menu Hero" class="page-hero-bg">
+      <div class="page-hero-content">
+        <span class="section-label" style="justify-content: center;">Handcrafted Daily</span>
+        <h1 class="section-title text-cream" style="font-size: clamp(2.8rem, 6vw, 4.8rem);">
+          The Coffee Menu
+        </h1>
+        <p class="section-subtitle" style="margin: 0 auto; color: var(--color-cream-soft);">
+          Every espresso extracted on synesso machines, every pour-over brewed on demand, every sip intentional.
+        </p>
+      </div>
+    </section>
+
+    <!-- Menu Content -->
+    <section class="section" style="background: var(--color-cream);">
+      <div class="container" style="max-width: 1080px;">
+        
+        <!-- Category 1: Espresso Bar -->
+        <div style="margin-bottom: 70px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--color-copper); padding-bottom: 12px; margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">
+              01 — Espresso Bar
+            </h2>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-copper); text-transform: uppercase;">Single Origin / House Blend</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Solo Espresso</h4>
+                <p>Pure single extraction • 18g dry in / 36g out • Intense aroma</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-espresso" data-name="Solo Espresso" data-price="140" data-image="assets/espresso.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹140</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Double Espresso (Doppio)</h4>
+                <p>Double shot extraction • Dense tiger stripe crema</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-doppio" data-name="Double Espresso" data-price="160" data-image="assets/espresso.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹160</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Espresso Macchiato</h4>
+                <p>Espresso marked with a dollop of textured micro-foam</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-macchiato" data-name="Espresso Macchiato" data-price="180" data-image="assets/espresso.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹180</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Cortado</h4>
+                <p>Equal parts rich espresso and silky warm milk (1:1 ratio)</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-cortado" data-name="Cortado" data-price="200" data-image="assets/cappuccino.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Hot Coffee -->
+        <div style="margin-bottom: 70px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--color-copper); padding-bottom: 12px; margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">
+              02 — Hot Milk & Manual Brews
+            </h2>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-copper); text-transform: uppercase;">Steamed & Filter</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Cappuccino</h4>
+                <p>Espresso • Steamed Whole Milk • Rich Silky Foam</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-cappuccino" data-name="Cappuccino" data-price="220" data-image="assets/cappuccino.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹220</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Caffè Latte</h4>
+                <p>Double espresso • Steamed milk • Light layer of foam</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-latte" data-name="Caffè Latte" data-price="230" data-image="assets/cappuccino.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹230</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Flat White</h4>
+                <p>Ristretto double shot • Micro-foamed milk • Velvety texture</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-flatwhite" data-name="Flat White" data-price="230" data-image="assets/cappuccino.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹230</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>V60 Pour Over</h4>
+                <p>Choice of Ethiopia or Colombia • Manual paper filter</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-v60" data-name="V60 Pour Over" data-price="240" data-image="assets/pour-over.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹240</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Cold Coffee -->
+        <div style="margin-bottom: 70px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--color-copper); padding-bottom: 12px; margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">
+              03 — Cold Coffee & Iced Extractions
+            </h2>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-copper); text-transform: uppercase;">Chilled & Refreshing</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Classic Cold Brew</h4>
+                <p>18-hour cold steeped Arabica • Clear ice block • Citrus aroma</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-classic-cold" data-name="Classic Cold Brew" data-price="260" data-image="assets/cold-brew.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹260</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Iced Caramel Macchiato</h4>
+                <p>Vanilla milk • Espresso float • Handcrafted copper caramel drizzle</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-iced-caramel" data-name="Iced Caramel Macchiato" data-price="260" data-image="assets/caramel-latte.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹260</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Cold Brew Tonic</h4>
+                <p>Concentrated cold brew • Fever Tree Indian tonic • Orange wheel</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-tonic" data-name="Cold Brew Tonic" data-price="280" data-image="assets/cold-brew.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹280</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Iced Shakerato</h4>
+                <p>Double espresso shaken vigorously over ice with raw turbinado sugar</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-shakerato" data-name="Iced Shakerato" data-price="240" data-image="assets/cold-brew.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹240</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Specialty & Seasonal Drinks -->
+        <div style="margin-bottom: 70px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--color-copper); padding-bottom: 12px; margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">
+              04 — Specialty & Seasonal Blends
+            </h2>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-copper); text-transform: uppercase;">Limited Offerings</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Cinnamon Smoked Cortado</h4>
+                <p>Torched Ceylon cinnamon stick • Double espresso • Oat milk</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-cinnamon" data-name="Cinnamon Smoked Cortado" data-price="270" data-image="assets/seasonal-drink.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹270</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Dark Chocolate Mocha</h4>
+                <p>70% Valrhona single-origin chocolate • Double espresso • Steamed milk</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="drink-mocha" data-name="Dark Chocolate Mocha" data-price="250" data-image="assets/mocha.webp">Order Drink</button>
+              </div>
+              <span class="menu-item-price">₹250</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 5: Bakery / Snacks & Desserts -->
+        <div style="margin-bottom: 70px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--color-copper); padding-bottom: 12px; margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">
+              05 — Artisan Bakery & Desserts
+            </h2>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-copper); text-transform: uppercase;">Freshly Baked</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>French Butter Croissant</h4>
+                <p>Hand-laminated sourdough pastry • Golden flakiness</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="bakery-croissant" data-name="Butter Croissant" data-price="160" data-image="assets/community.webp">Order Item</button>
+              </div>
+              <span class="menu-item-price">₹160</span>
+            </div>
+
+            <div class="menu-preview-item" style="border: 1px solid rgba(28,23,20,0.08); background: #fff; padding: 20px; border-radius: 12px;">
+              <div class="menu-item-info">
+                <h4>Espresso Tiramisu</h4>
+                <p>Savoiardi soaked in fresh Midnight Roast espresso • Mascarpone cream</p>
+                <button class="btn btn-sm btn-outline-copper" style="margin-top: 12px;" data-quick-add data-id="bakery-tiramisu" data-name="Espresso Tiramisu" data-price="280" data-image="assets/community.webp">Order Item</button>
+              </div>
+              <span class="menu-item-price">₹280</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 CTA -->
+        <div style="background: var(--color-espresso); color: var(--color-cream); border-radius: var(--radius-lg); padding: 50px 30px; text-align: center;">
+          <span class="section-label" style="justify-content: center;">Take The Experience Home</span>
+          <h3 style="font-family: var(--font-display); font-size: 2.4rem; color: var(--color-cream); margin-bottom: 12px;">
+            Love Our Café Drinks?
+          </h3>
+          <p style="color: var(--color-text-light-muted); max-width: 580px; margin: 0 auto 28px;">
+            Order the very same roasted beans and specialized brew tools to recreate these cup profiles on your kitchen counter.
+          </p>
+          <a href="Shop.html" class="btn btn-copper">VISIT THE BEAN SHOP</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          </a>
+          <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
+          <div class="footer-social-links">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Single Origin Reserve</a></li>
+            <li><a href="404.html">Artisan Dark Blends</a></li>
+            <li><a href="404.html">Cold Brew Packs</a></li>
+            <li><a href="404.html">Drip Bag Sets</a></li>
+            <li><a href="404.html">Roaster's Club Subscription</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Café & Craft</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Brewing Guides</a></li>
+            <li><a href="404.html">Wholesale Partnerships</a></li>
+            <li><a href="404.html">Barista Workshops</a></li>
+            <li><a href="404.html">Private Tasting Events</a></li>
+            <li><a href="404.html">Sustainability Report</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 STACKLY COFFEE. Brewed With Intention. All rights reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
