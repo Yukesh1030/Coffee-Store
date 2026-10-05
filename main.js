@@ -33,40 +33,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Hamburger Menu Functionality
+  // 3. Hamburger Menu Functionality (Full-Page Overlay with Full Functionality)
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileNavDrawer = document.getElementById('mobileNavDrawer');
   const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+  const mobileNavCloseBtn = document.getElementById('mobileNavCloseBtn');
 
   function toggleMobileMenu(open = null) {
+    if (!mobileNavDrawer) return;
     const isOpen = open !== null ? open : !mobileNavDrawer.classList.contains('open');
     if (isOpen) {
       hamburgerBtn?.classList.add('active');
-      mobileNavDrawer?.classList.add('open');
+      mobileNavDrawer.classList.add('open');
       mobileNavBackdrop?.classList.add('open');
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
 
       if (typeof gsap !== 'undefined') {
-        gsap.from('.mobile-link', {
-          x: 40,
-          opacity: 0,
-          stagger: 0.08,
-          duration: 0.4,
-          ease: 'power2.out'
-        });
+        gsap.fromTo('.mobile-link', 
+          { x: 30, opacity: 0 },
+          { x: 0, opacity: 1, stagger: 0.06, duration: 0.35, ease: 'power2.out', clearProps: 'opacity,transform' }
+        );
+        gsap.fromTo('.fullpage-info-section',
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, delay: 0.15, ease: 'power2.out', clearProps: 'opacity,transform' }
+        );
       }
     } else {
       hamburgerBtn?.classList.remove('active');
-      mobileNavDrawer?.classList.remove('open');
+      mobileNavDrawer.classList.remove('open');
       mobileNavBackdrop?.classList.remove('open');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
   }
 
   hamburgerBtn?.addEventListener('click', () => toggleMobileMenu());
+  mobileNavCloseBtn?.addEventListener('click', () => toggleMobileMenu(false));
   mobileNavBackdrop?.addEventListener('click', () => toggleMobileMenu(false));
 
-  document.querySelectorAll('.mobile-link').forEach(link => {
+  document.querySelectorAll('.mobile-link, .fullpage-actions .btn').forEach(link => {
     link.addEventListener('click', () => toggleMobileMenu(false));
   });
 
@@ -368,12 +374,16 @@ document.addEventListener('DOMContentLoaded', () => {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const input = newsletterForm.querySelector('input[type="email"]');
-      if (input && input.value.includes('@')) {
-        alert(`Thank you for subscribing! A welcome coffee guide has been sent to ${input.value}.`);
-        input.value = '';
-      } else {
+      const email = input ? input.value.trim() : '';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!email || !emailRegex.test(email)) {
         alert('Please enter a valid email address.');
+        if (input) input.focus();
+        return;
       }
+
+      window.location.href = '404.html';
     });
   }
 
@@ -382,24 +392,51 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('contactName')?.value.trim();
-      const email = document.getElementById('contactEmail')?.value.trim();
-      const phone = document.getElementById('contactPhone')?.value.trim();
-      const subject = document.getElementById('contactSubject')?.value.trim();
-      const message = document.getElementById('contactMessage')?.value.trim();
+      const nameInput = document.getElementById('contactName');
+      const emailInput = document.getElementById('contactEmail');
+      const phoneInput = document.getElementById('contactPhone');
+      const subjectInput = document.getElementById('contactSubject');
+      const messageInput = document.getElementById('contactMessage');
 
-      if (!name || !email || !phone || !subject || !message) {
-        alert('Please fill out all required fields before submitting.');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const subject = subjectInput ? subjectInput.value.trim() : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+
+      if (!name || name.length < 2) {
+        alert('Please enter your full name (at least 2 characters).');
+        if (nameInput) nameInput.focus();
         return;
       }
 
-      if (!email.includes('@')) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
         alert('Please enter a valid email address.');
+        if (emailInput) emailInput.focus();
         return;
       }
 
-      alert(`Thank you, ${name}! Your message regarding "${subject}" has been received. Our team will contact you shortly.`);
-      contactForm.reset();
+      const digits = phone.replace(/\D/g, '');
+      if (!phone || digits.length < 10) {
+        alert('Please enter a valid phone number (at least 10 digits).');
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      if (!subject || subject.length < 2) {
+        alert('Please enter an inquiry subject.');
+        if (subjectInput) subjectInput.focus();
+        return;
+      }
+
+      if (!message || message.length < 5) {
+        alert('Please enter a message (at least 5 characters).');
+        if (messageInput) messageInput.focus();
+        return;
+      }
+
+      window.location.href = '404.html';
     });
   }
 });

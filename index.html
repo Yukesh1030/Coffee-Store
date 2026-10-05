@@ -49,18 +49,86 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Full-Page Mobile Navigation Overlay -->
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
-  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
-    <div class="mobile-links">
-      <a href="index.html" class="mobile-link active">Home <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="Menu.html" class="mobile-link">Menu <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="Shop.html" class="mobile-link">Shop <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="About.html" class="mobile-link">About <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="Contact.html" class="mobile-link">Contact <i class="fa-solid fa-arrow-right"></i></a>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Full-Page Navigation" role="dialog" aria-modal="true">
+    <div class="fullpage-menu-header">
+      <a href="index.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE">
+        <span>STACKLY</span>
+      </a>
+      <button class="fullpage-close-btn" id="mobileNavCloseBtn" aria-label="Close navigation">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
-    <div class="mobile-actions">
-      <a href="Login.html" class="btn btn-copper" style="width: 100%;">Member Login</a>
+
+    <div class="fullpage-menu-body">
+      <div class="fullpage-nav-section">
+        <span class="fullpage-label">Explore Menu</span>
+        <nav class="mobile-links">
+          <a href="index.html" class="mobile-link active">
+            <span class="mobile-link-num">01</span>
+            <span class="mobile-link-text">Home</span>
+            <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
+          </a>
+          <a href="Menu.html" class="mobile-link">
+            <span class="mobile-link-num">02</span>
+            <span class="mobile-link-text">Menu</span>
+            <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
+          </a>
+          <a href="Shop.html" class="mobile-link">
+            <span class="mobile-link-num">03</span>
+            <span class="mobile-link-text">Shop</span>
+            <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
+          </a>
+          <a href="About.html" class="mobile-link">
+            <span class="mobile-link-num">04</span>
+            <span class="mobile-link-text">About</span>
+            <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
+          </a>
+          <a href="Contact.html" class="mobile-link">
+            <span class="mobile-link-num">05</span>
+            <span class="mobile-link-text">Contact</span>
+            <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="fullpage-info-section">
+        <div class="fullpage-actions">
+          <a href="Login.html" class="btn btn-copper">
+            <i class="fa-solid fa-user"></i> Member Login
+          </a>
+          <a href="Shop.html" class="btn btn-outline-cream">
+            <i class="fa-solid fa-mug-hot"></i> Explore Fresh Roasts
+          </a>
+        </div>
+
+        <div class="fullpage-contact-grid">
+          <div class="fullpage-info-item">
+            <span class="info-label"><i class="fa-solid fa-location-dot text-copper"></i> Visit Café</span>
+            <p>12th Main Road, Indiranagar, Bangalore</p>
+          </div>
+          <div class="fullpage-info-item">
+            <span class="info-label"><i class="fa-solid fa-clock text-copper"></i> Opening Hours</span>
+            <p>Mon – Sun: 7:00 AM – 10:00 PM</p>
+          </div>
+          <div class="fullpage-info-item">
+            <span class="info-label"><i class="fa-solid fa-envelope text-copper"></i> Direct Inquiries</span>
+            <p><a href="mailto:hello@stacklycoffee.com">hello@stacklycoffee.com</a></p>
+          </div>
+        </div>
+
+        <div class="fullpage-socials">
+          <span class="socials-label">Follow The Craft</span>
+          <div class="socials-icons">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
   </aside>
 
@@ -84,8 +152,8 @@
           Specialty coffee crafted from exceptional origins. Slow roasted with patience, precision, and passion.
         </p>
         <div class="hero-cta-group">
-          <a href="Menu.html" class="btn btn-copper">EXPLORE MENU</a>
-          <a href="Shop.html" class="btn btn-outline-cream">SHOP COFFEE</a>
+          <a href="404.html" class="btn btn-copper">EXPLORE MENU</a>
+          <a href="404.html" class="btn btn-outline-cream">SHOP COFFEE</a>
         </div>
       </div>
 
@@ -121,7 +189,7 @@
 
             <div style="display: flex; align-items: center; gap: 20px; margin-top: 24px;">
               <span style="font-size: 1.8rem; font-weight: 700; color: var(--color-copper);">₹680 <span style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-light-muted);">/ 250g</span></span>
-              <a href="product-detail.html" class="btn btn-copper">DISCOVER THE BLEND</a>
+              <a href="404.html" class="btn btn-copper">DISCOVER THE BLEND</a>
             </div>
           </div>
         </div>
@@ -196,7 +264,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 50px;">
-          <a href="Menu.html" class="btn btn-espresso">VIEW FULL MENU</a>
+          <a href="404.html" class="btn btn-espresso">VIEW FULL MENU</a>
         </div>
       </div>
     </section>
@@ -210,7 +278,7 @@
             <h2 class="section-title">Explore Our Beans</h2>
             <p class="section-subtitle">Roasted weekly to ensure peak degassing and flavor vibrancy.</p>
           </div>
-          <a href="Shop.html" class="btn btn-outline-copper">VIEW ALL BEANS →</a>
+          <a href="404.html" class="btn btn-outline-copper">VIEW ALL BEANS →</a>
         </div>
 
         <div class="product-grid">
@@ -225,7 +293,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Ethiopia • Yirgacheffe</p>
-              <h3 class="product-title"><a href="product-detail.html">Ethiopia Yirgacheffe</a></h3>
+              <h3 class="product-title"><a href="404.html">Ethiopia Yirgacheffe</a></h3>
               <p class="product-notes">Floral • Citrus • Wild Honey</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g</span>
@@ -235,7 +303,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-ethiopia" data-name="Ethiopia Yirgacheffe" data-price="680" data-image="assets/ethiopia.webp">
                   <i class="fa-solid fa-plus"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -251,7 +319,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Colombia • Huila</p>
-              <h3 class="product-title"><a href="product-detail.html">Colombia Huila</a></h3>
+              <h3 class="product-title"><a href="404.html">Colombia Huila</a></h3>
               <p class="product-notes">Caramel • Red Fruit • Chocolate</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g</span>
@@ -261,7 +329,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-colombia" data-name="Colombia Huila" data-price="720" data-image="assets/colombia.webp">
                   <i class="fa-solid fa-plus"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -277,7 +345,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Brazil • Cerrado</p>
-              <h3 class="product-title"><a href="product-detail.html">Brazil Santos</a></h3>
+              <h3 class="product-title"><a href="404.html">Brazil Santos</a></h3>
               <p class="product-notes">Hazelnut • Cocoa • Low Acidity</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g</span>
@@ -287,7 +355,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-brazil" data-name="Brazil Santos" data-price="640" data-image="assets/brazil.webp">
                   <i class="fa-solid fa-plus"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -303,7 +371,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Kenya • Nyeri Hills</p>
-              <h3 class="product-title"><a href="product-detail.html">Kenya Nyeri</a></h3>
+              <h3 class="product-title"><a href="404.html">Kenya Nyeri</a></h3>
               <p class="product-notes">Blackcurrant • Grapefruit • Sugarcane</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g</span>
@@ -313,7 +381,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-kenya" data-name="Kenya Nyeri" data-price="760" data-image="assets/kenya.webp">
                   <i class="fa-solid fa-plus"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -359,7 +427,7 @@
             <p id="roastStepDesc" style="color: var(--color-text-light-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
               Selected directly from altitude-blessed smallholder estates across Yirgacheffe, Huila, and Minas Gerais. Every single green bean meets Specialty Coffee Association (SCA) 86+ standards.
             </p>
-            <a href="About.html" class="btn btn-outline-copper btn-sm">LEARN OUR PHILOSOPHY</a>
+            <a href="404.html" class="btn btn-outline-copper btn-sm">LEARN OUR PHILOSOPHY</a>
           </div>
         </div>
       </div>
@@ -414,7 +482,7 @@
               <strong>Key Flavor Notes:</strong> <span id="originNotes" style="color: var(--color-copper); font-weight: 600;">Floral, Bergamot, Wild Honey, Apricot</span>
             </p>
 
-            <a href="Shop.html" class="btn btn-copper">EXPLORE ORIGIN LOTS</a>
+            <a href="404.html" class="btn btn-copper">EXPLORE ORIGIN LOTS</a>
           </div>
         </div>
       </div>
@@ -437,7 +505,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Signature Blend</p>
-              <h3 class="product-title"><a href="product-detail.html">Midnight Roast</a></h3>
+              <h3 class="product-title"><a href="404.html">Midnight Roast</a></h3>
               <p class="product-notes">Dark Roast • Dark Cocoa & Caramel</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g / 500g</span>
@@ -447,7 +515,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-midnight" data-name="Midnight Roast" data-price="680" data-image="assets/midnight-roast.webp">
                   <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -459,7 +527,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Single Origin</p>
-              <h3 class="product-title"><a href="product-detail.html">Ethiopia Yirgacheffe</a></h3>
+              <h3 class="product-title"><a href="404.html">Ethiopia Yirgacheffe</a></h3>
               <p class="product-notes">Light-Medium • Jasmine & Bergamot</p>
               <div class="product-meta-row">
                 <span class="product-weight">250g</span>
@@ -469,7 +537,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-ethiopia" data-name="Ethiopia Yirgacheffe" data-price="680" data-image="assets/ethiopia.webp">
                   <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -481,7 +549,7 @@
             </div>
             <div class="product-card-body">
               <p class="product-origin">Ready Steep Bags</p>
-              <h3 class="product-title"><a href="product-detail.html">Cold Brew Blend</a></h3>
+              <h3 class="product-title"><a href="404.html">Cold Brew Blend</a></h3>
               <p class="product-notes">Coarse Grind • Smooth Chocolate</p>
               <div class="product-meta-row">
                 <span class="product-weight">Pack of 4</span>
@@ -491,7 +559,7 @@
                 <button class="btn btn-copper btn-sm" data-quick-add data-id="p-coldbrew" data-name="Cold Brew Blend" data-price="740" data-image="assets/cold-brew.webp">
                   <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
                 </button>
-                <a href="product-detail.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="404.html" class="btn btn-outline-copper btn-sm" aria-label="View Details"><i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -510,7 +578,7 @@
         <p class="section-subtitle" style="margin: 0 auto 36px; font-size: 1.25rem; color: var(--color-cream-soft);">
           A place to slow down, meet someone, or simply enjoy your own company. Step into the warm embrace of our roastery café, where wood, espresso steam, and thoughtful music converge.
         </p>
-        <a href="Contact.html" class="btn btn-copper">VISIT OUR CAFÉ</a>
+        <a href="404.html" class="btn btn-copper">VISIT OUR CAFÉ</a>
       </div>
     </section>
 
