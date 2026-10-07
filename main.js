@@ -30,6 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     inputElement.style.borderColor = '';
   };
+
+  // Dynamic Dashboard User Name logic
+  const currentUserStr = localStorage.getItem('stackly_current_user');
+  if (currentUserStr) {
+    try {
+      const currentUser = JSON.parse(currentUserStr);
+      if (currentUser && currentUser.name) {
+        document.querySelectorAll('.dashboard-user-name').forEach(el => {
+          el.textContent = currentUser.name;
+        });
+        document.querySelectorAll('.dashboard-user-avatar').forEach(el => {
+          el.textContent = currentUser.name.charAt(0).toUpperCase();
+        });
+      }
+    } catch (e) {
+      console.error('Error parsing current user', e);
+    }
+  }
+
   // 1. Preloader Logic
   const preloader = document.getElementById('preloader');
   if (preloader) {

@@ -2236,15 +2236,19 @@ ul, ol {
   color: var(--color-copper);
 }
 
-.dashboard-main {
-  padding: 36px clamp(16px, 4vw, 40px);
-}
-
 .dashboard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 36px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-cream);
+  padding: 20px 0 16px 0;
+}
+.dashboard-main {
+  padding: 0 clamp(16px, 4vw, 40px) 36px;
 }
 
 .kpi-cards-grid {
