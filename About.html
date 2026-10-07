@@ -24,18 +24,18 @@
   <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="404.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
       </a>
       <nav class="nav-links-desktop">
-        <a href="404.html" class="nav-link">Home</a>
-        <a href="404.html" class="nav-link">Menu</a>
-        <a href="404.html" class="nav-link">Shop</a>
-        <a href="404.html" class="nav-link active">About</a>
-        <a href="404.html" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link active">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="404.html" class="btn-nav-login">Login</a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -49,7 +49,7 @@
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Full-Page Navigation" role="dialog" aria-modal="true">
     <div class="fullpage-menu-header">
-      <a href="404.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE">
         <span>STACKLY</span>
       </a>
@@ -62,27 +62,27 @@
       <div class="fullpage-nav-section">
         <span class="fullpage-label">Explore Menu</span>
         <nav class="mobile-links">
-          <a href="404.html" class="mobile-link">
+          <a href="index.html" class="mobile-link">
             <span class="mobile-link-num">01</span>
             <span class="mobile-link-text">Home</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Menu.html" class="mobile-link">
             <span class="mobile-link-num">02</span>
             <span class="mobile-link-text">Menu</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Shop.html" class="mobile-link">
             <span class="mobile-link-num">03</span>
             <span class="mobile-link-text">Shop</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link active">
+          <a href="About.html" class="mobile-link active">
             <span class="mobile-link-num">04</span>
             <span class="mobile-link-text">About</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Contact.html" class="mobile-link">
             <span class="mobile-link-num">05</span>
             <span class="mobile-link-text">Contact</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
@@ -92,7 +92,7 @@
 
       <div class="fullpage-info-section">
         <div class="fullpage-actions">
-          <a href="404.html" class="btn btn-copper">
+          <a href="Login.html" class="btn btn-copper">
             <i class="fa-solid fa-user"></i> Login
           </a>
         </div>
@@ -297,13 +297,88 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  
+    <!-- Section 1: Our Origin Story -->
+    <section class="section" id="originSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;" class="about-gsap-fade">
+          <span class="section-label" style="justify-content: center;"><i class="fa-solid fa-book-open"></i> Heritage</span>
+          <h2 class="section-title">Our Origin Story</h2>
+          <p class="section-subtitle">Founded in a small garage in 2012, our mission was simple: bring absolute transparency to every cup of coffee.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Meet the Master Roasters -->
+    <section class="section section-dark" id="roastersSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;" class="about-gsap-fade">
+          <h2 class="section-title text-cream">Meet the Master Roasters</h2>
+          <p class="section-subtitle text-cream" style="opacity: 0.8">The Q-Graders behind the flavor.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="about-gsap-fade">
+          <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; text-align: center;">
+            <div style="width: 100px; height: 100px; background: var(--color-copper); border-radius: 50%; margin: 0 auto 20px;"></div>
+            <h3 style="color: white;">Elena Rossi</h3>
+            <p style="color: var(--color-copper); font-size: 0.9rem;">Head Roaster</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; text-align: center;">
+            <div style="width: 100px; height: 100px; background: var(--color-copper); border-radius: 50%; margin: 0 auto 20px;"></div>
+            <h3 style="color: white;">David Chen</h3>
+            <p style="color: var(--color-copper); font-size: 0.9rem;">Licensed Q-Grader</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Sustainability & Fair Trade -->
+    <section class="section bg-cream" id="sustainabilitySection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;" class="about-gsap-fade">
+          <h2 class="section-title">Sustainability Promise</h2>
+          <p class="section-subtitle">Zero waste, 100% direct trade.</p>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;" class="about-gsap-fade">
+          <div style="text-align: center; max-width: 200px;">
+            <i class="fa-solid fa-leaf text-copper" style="font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>Direct Trade</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Paying 2.5x above fair trade baseline.</p>
+          </div>
+          <div style="text-align: center; max-width: 200px;">
+            <i class="fa-solid fa-box text-copper" style="font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>Compostable</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Fully biodegradable packaging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Roasting Facility Tour -->
+    <section class="section" id="facilitySection">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title about-gsap-fade">Inside the Roastery</h2>
+        <p class="section-subtitle about-gsap-fade" style="max-width: 600px; margin: 0 auto 40px;">State-of-the-art Loring S7 Nighthawk roasting to precision.</p>
+        <div style="background: var(--color-cream-soft); padding: 60px; border-radius: 16px; margin: 0 auto; max-width: 800px;" class="about-gsap-fade">
+          <h3>Facility Tour Video Placeholder</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Community Impact -->
+    <section class="section bg-cream" id="communitySection">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title about-gsap-fade">Community Impact</h2>
+        <p class="section-subtitle about-gsap-fade" style="max-width: 600px; margin: 0 auto 30px;">1% of all revenue funds water purification in partner origins.</p>
+        <a href="404.html" class="btn btn-copper about-gsap-fade">Read the Report</a>
+      </div>
+    </section>
+\n  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand">
-          <a href="404.html">
-            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          <a href="index.html">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
           </a>
           <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
           <div class="footer-social-links">
@@ -318,11 +393,11 @@
         <div class="footer-column">
           <h4>Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="404.html">Home</a></li>
-            <li><a href="404.html">Menu</a></li>
-            <li><a href="404.html">Shop Coffee</a></li>
-            <li><a href="404.html">About Us</a></li>
-            <li><a href="404.html">Contact & Cafés</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
           </ul>
         </div>
 
@@ -361,6 +436,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="cart.js"></script>
   <script src="main.js"></script>
 </body>

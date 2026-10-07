@@ -24,18 +24,18 @@
   <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="404.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
       </a>
       <nav class="nav-links-desktop">
-        <a href="404.html" class="nav-link">Home</a>
-        <a href="404.html" class="nav-link">Menu</a>
-        <a href="404.html" class="nav-link active">Shop</a>
-        <a href="404.html" class="nav-link">About</a>
-        <a href="404.html" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link active">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="404.html" class="btn-nav-login">Login</a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -49,7 +49,7 @@
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Full-Page Navigation" role="dialog" aria-modal="true">
     <div class="fullpage-menu-header">
-      <a href="404.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE">
         <span>STACKLY</span>
       </a>
@@ -62,27 +62,27 @@
       <div class="fullpage-nav-section">
         <span class="fullpage-label">Explore Menu</span>
         <nav class="mobile-links">
-          <a href="404.html" class="mobile-link">
+          <a href="index.html" class="mobile-link">
             <span class="mobile-link-num">01</span>
             <span class="mobile-link-text">Home</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Menu.html" class="mobile-link">
             <span class="mobile-link-num">02</span>
             <span class="mobile-link-text">Menu</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link active">
+          <a href="Shop.html" class="mobile-link active">
             <span class="mobile-link-num">03</span>
             <span class="mobile-link-text">Shop</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="About.html" class="mobile-link">
             <span class="mobile-link-num">04</span>
             <span class="mobile-link-text">About</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Contact.html" class="mobile-link">
             <span class="mobile-link-num">05</span>
             <span class="mobile-link-text">Contact</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
@@ -92,7 +92,7 @@
 
       <div class="fullpage-info-section">
         <div class="fullpage-actions">
-          <a href="404.html" class="btn btn-copper">
+          <a href="Login.html" class="btn btn-copper">
             <i class="fa-solid fa-user"></i> Login
           </a>
         </div>
@@ -222,13 +222,116 @@
     </div>
   </main>
 
-  <!-- Footer -->
+  
+    <!-- Section 1: Fresh Arrivals Carousel -->
+    <section class="section bg-cream" id="freshArrivalsSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title">Fresh out the Roaster</h2>
+          <p class="section-subtitle">The latest single-origin micro-lots, roasted within the last 48 hours.</p>
+        </div>
+        <div class="product-grid shop-gsap-fade">
+          <div class="product-card">
+            <div class="product-image-wrapper"><img src="assets/colombia.webp" alt="Roast"></div>
+            <div class="product-info">
+              <h3 class="product-title">Geisha Reserve</h3>
+              <p class="product-roast" style="color:var(--color-copper);">Light Roast</p>
+              <div class="product-price">₹1200</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image-wrapper"><img src="assets/ethiopia.webp" alt="Roast"></div>
+            <div class="product-info">
+              <h3 class="product-title">Yirgacheffe Grade 1</h3>
+              <p class="product-roast" style="color:var(--color-copper);">Medium Light</p>
+              <div class="product-price">₹950</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Equipment Mastery -->
+    <section class="section section-dark" id="equipmentSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title text-cream">Brewing Equipment</h2>
+          <p class="section-subtitle text-cream" style="opacity: 0.8">Professional grade gear for the home barista.</p>
+        </div>
+        <div class="product-grid shop-gsap-fade">
+          <div class="product-card" style="background: var(--color-espresso); color: white; padding: 20px;">
+            <h3 class="product-title" style="color: white;">Fellow Stagg EKG</h3>
+            <div class="product-price">₹14000</div>
+          </div>
+          <div class="product-card" style="background: var(--color-espresso); color: white; padding: 20px;">
+            <h3 class="product-title" style="color: white;">Comandante C40</h3>
+            <div class="product-price">₹25000</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Coffee Subscriptions -->
+    <section class="section bg-cream" id="subscriptionSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title">Curated Subscriptions</h2>
+          <p class="section-subtitle">Never run out of fresh coffee again.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;" class="shop-gsap-fade">
+          <div style="background: white; padding: 40px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.1); text-align: center;">
+            <h3>Explorer Tier</h3>
+            <h2 style="color: var(--color-copper); margin: 20px 0;">₹800/mo</h2>
+            <a href="404.html" class="btn btn-copper" style="width: 100%;">Subscribe</a>
+          </div>
+          <div style="background: var(--color-espresso); color: white; padding: 40px; border-radius: 16px; text-align: center; transform: scale(1.05);">
+            <h3 style="color: white;">Connoisseur Tier</h3>
+            <h2 style="color: var(--color-copper); margin: 20px 0;">₹1500/mo</h2>
+            <a href="404.html" class="btn btn-copper" style="width: 100%;">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Merch & Apparel -->
+    <section class="section" id="merchSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title">Apparel & Merch</h2>
+          <p class="section-subtitle">Wear your coffee passion.</p>
+        </div>
+        <div class="product-grid shop-gsap-fade">
+          <div class="product-card" style="padding: 30px; text-align: center; background: var(--color-cream-soft);">
+            <h3>Heavy Canvas Tote</h3>
+            <p style="margin-top:10px;">₹600</p>
+          </div>
+          <div class="product-card" style="padding: 30px; text-align: center; background: var(--color-cream-soft);">
+            <h3>Barista Apron</h3>
+            <p style="margin-top:10px;">₹1800</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Brew Guides Promos -->
+    <section class="section bg-cream" id="brewGuidesSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title">Brewing Success</h2>
+          <p class="section-subtitle">Check out our brew guides to get the most out of your gear.</p>
+        </div>
+        <div style="display: flex; justify-content: center;" class="shop-gsap-fade">
+          <a href="404.html" class="btn btn-outline-copper">Read Guides</a>
+        </div>
+      </div>
+    </section>
+\n  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand">
-          <a href="404.html">
-            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          <a href="index.html">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
           </a>
           <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
           <div class="footer-social-links">
@@ -243,11 +346,11 @@
         <div class="footer-column">
           <h4>Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="404.html">Home</a></li>
-            <li><a href="404.html">Menu</a></li>
-            <li><a href="404.html">Shop Coffee</a></li>
-            <li><a href="404.html">About Us</a></li>
-            <li><a href="404.html">Contact & Cafés</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
           </ul>
         </div>
 
@@ -479,5 +582,7 @@
 
     renderProducts();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </body>
 </html>

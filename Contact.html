@@ -24,18 +24,18 @@
   <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="404.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
       </a>
       <nav class="nav-links-desktop">
-        <a href="404.html" class="nav-link">Home</a>
-        <a href="404.html" class="nav-link">Menu</a>
-        <a href="404.html" class="nav-link">Shop</a>
-        <a href="404.html" class="nav-link">About</a>
-        <a href="404.html" class="nav-link active">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="Menu.html" class="nav-link">Menu</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Contact.html" class="nav-link active">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="404.html" class="btn-nav-login">Login</a>
+        <a href="Login.html" class="btn-nav-login">Login</a>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile navigation">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -49,7 +49,7 @@
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Full-Page Navigation" role="dialog" aria-modal="true">
     <div class="fullpage-menu-header">
-      <a href="404.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
+      <a href="index.html" class="fullpage-menu-logo" aria-label="STACKLY COFFEE Home">
         <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE">
         <span>STACKLY</span>
       </a>
@@ -62,27 +62,27 @@
       <div class="fullpage-nav-section">
         <span class="fullpage-label">Explore Menu</span>
         <nav class="mobile-links">
-          <a href="404.html" class="mobile-link">
+          <a href="index.html" class="mobile-link">
             <span class="mobile-link-num">01</span>
             <span class="mobile-link-text">Home</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Menu.html" class="mobile-link">
             <span class="mobile-link-num">02</span>
             <span class="mobile-link-text">Menu</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="Shop.html" class="mobile-link">
             <span class="mobile-link-num">03</span>
             <span class="mobile-link-text">Shop</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link">
+          <a href="About.html" class="mobile-link">
             <span class="mobile-link-num">04</span>
             <span class="mobile-link-text">About</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
           </a>
-          <a href="404.html" class="mobile-link active">
+          <a href="Contact.html" class="mobile-link active">
             <span class="mobile-link-num">05</span>
             <span class="mobile-link-text">Contact</span>
             <i class="fa-solid fa-arrow-right-long mobile-link-arrow"></i>
@@ -92,7 +92,7 @@
 
       <div class="fullpage-info-section">
         <div class="fullpage-actions">
-          <a href="404.html" class="btn btn-copper">
+          <a href="Login.html" class="btn btn-copper">
             <i class="fa-solid fa-user"></i> Login
           </a>
         </div>
@@ -358,13 +358,86 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  
+    <!-- Section 1: Global Flagships -->
+    <section class="section bg-cream" id="flagshipSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title contact-gsap-fade">Global Flagship Locations</h2>
+          <p class="section-subtitle contact-gsap-fade">Come sip with us.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" class="contact-gsap-fade">
+          <div style="background: white; padding: 30px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1);">
+            <h3 style="color: var(--color-espresso);">New York</h3>
+            <p style="margin: 10px 0; font-size: 0.9rem;">123 Roaster Ave, Brooklyn, NY</p>
+            <p style="color: var(--color-copper); font-size: 0.9rem;">Open 7AM - 6PM</p>
+          </div>
+          <div style="background: white; padding: 30px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1);">
+            <h3 style="color: var(--color-espresso);">Tokyo</h3>
+            <p style="margin: 10px 0; font-size: 0.9rem;">45 Omotesando, Shibuya</p>
+            <p style="color: var(--color-copper); font-size: 0.9rem;">Open 8AM - 8PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive FAQ Accordion -->
+    <section class="section" id="faqSection">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+          <h2 class="section-title contact-gsap-fade">Frequently Asked Questions</h2>
+        </div>
+        <div style="max-width: 700px; margin: 0 auto;" class="contact-gsap-fade">
+          <div style="padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <h3 style="font-size: 1.1rem; color: var(--color-espresso);">How fresh is the coffee?</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px; color: #666;">We roast to order. Your coffee is roasted within 24 hours of shipping.</p>
+          </div>
+          <div style="padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <h3 style="font-size: 1.1rem; color: var(--color-espresso);">Do you ship internationally?</h3>
+            <p style="font-size: 0.9rem; margin-top: 10px; color: #666;">Yes, we offer global shipping via DHL Express.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Wholesale Inquiries -->
+    <section class="section section-dark" id="wholesaleSection">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title text-cream contact-gsap-fade">Wholesale Partnerships</h2>
+        <p class="section-subtitle text-cream contact-gsap-fade" style="opacity: 0.8; max-width: 600px; margin: 0 auto 30px;">Serve STACKLY coffee at your cafe, restaurant, or office.</p>
+        <a href="404.html" class="btn btn-copper contact-gsap-fade">Apply for Wholesale</a>
+      </div>
+    </section>
+
+    <!-- Section 4: Careers -->
+    <section class="section" id="careersSection">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title contact-gsap-fade">Join the Crew</h2>
+        <p class="section-subtitle contact-gsap-fade" style="max-width: 600px; margin: 0 auto 30px;">We are always looking for passionate baristas and roasters.</p>
+        <a href="404.html" class="btn btn-outline-copper contact-gsap-fade">View Openings</a>
+      </div>
+    </section>
+
+    <!-- Section 5: Social Media Wall -->
+    <section class="section bg-cream" id="socialSection">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title contact-gsap-fade">@STACKLYCOFFEE</h2>
+        <p class="section-subtitle contact-gsap-fade" style="max-width: 600px; margin: 0 auto 30px;">Follow our journey on Instagram.</p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;" class="contact-gsap-fade">
+          <div style="width: 150px; height: 150px; background: #ddd; border-radius: 8px;"></div>
+          <div style="width: 150px; height: 150px; background: #ddd; border-radius: 8px;"></div>
+          <div style="width: 150px; height: 150px; background: #ddd; border-radius: 8px;"></div>
+          <div style="width: 150px; height: 150px; background: #ddd; border-radius: 8px;"></div>
+        </div>
+      </div>
+    </section>
+\n  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand">
-          <a href="404.html">
-            <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
+          <a href="index.html">
+        <img src="assets/Brand-logo.webp" alt="STACKLY COFFEE" class="brand-logo-img">
           </a>
           <p>STACKLY COFFEE — Brewed With Intention. Handcrafted specialty coffees, direct trade single origins, and artisan roasting.</p>
           <div class="footer-social-links">
@@ -379,11 +452,11 @@
         <div class="footer-column">
           <h4>Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="404.html">Home</a></li>
-            <li><a href="404.html">Menu</a></li>
-            <li><a href="404.html">Shop Coffee</a></li>
-            <li><a href="404.html">About Us</a></li>
-            <li><a href="404.html">Contact & Cafés</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Shop.html">Shop Coffee</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Contact.html">Contact & Cafés</a></li>
           </ul>
         </div>
 
@@ -422,6 +495,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="cart.js"></script>
   <script src="main.js"></script>
 </body>

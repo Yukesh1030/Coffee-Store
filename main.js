@@ -561,5 +561,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function initNewPageAnimations() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const animSelectors = ['.shop-gsap-fade', '.about-gsap-fade', '.contact-gsap-fade'];
+      
+      animSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+          elements.forEach(el => {
+            gsap.fromTo(el, 
+              { opacity: 0, y: 30 },
+              {
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+              }
+            );
+          });
+        }
+      });
+    }
+  }
+
   initMenuEnhancements();
+  initNewPageAnimations();
 });
