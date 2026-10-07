@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — STACKLY COFFEE</title>
+  <meta name="description" content="Manage your specialty coffee subscriptions, track live roast deliveries, and view curated coffee recommendations.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="assets/Brand-logo.webp" alt="STACKLY" class="preloader-logo">
+    <div class="preloader-steam-container">
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar: 5 Main Menus -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo-box">
+        <a href="ClientDashboard.html">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
+        </a>
+      </div>
+            <nav class="sidebar-menu">
+        <a href="ClientDashboard.html" class="sidebar-link "><i class="fa-solid fa-house-chimney"></i> Dashboard</a>
+        <a href="ClientOrders.html" class="sidebar-link "><i class="fa-solid fa-box-open"></i> My Orders</a>
+        <a href="ClientWishlist.html" class="sidebar-link active"><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="ClientMessages.html" class="sidebar-link "><i class="fa-solid fa-envelope"></i> Messages</a>
+        <a href="ClientSettings.html" class="sidebar-link "><i class="fa-solid fa-sliders"></i> Settings</a>
+        <a href="Login.html" class="sidebar-link" style="color: #ef4444;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div style="padding-top: 20px; border-top: 1px solid var(--color-espresso-border);">
+        <a href="index.html" class="sidebar-link"><i class="fa-solid fa-mug-saucer"></i> Explore Store</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div>
+          <span class="section-label" style="margin-bottom: 4px;">Welcome Back</span>
+          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">My Wishlist & Favorites</h1>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 10px; background: #fff; padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid rgba(28,23,20,0.1);">
+            <div class="dashboard-user-avatar" style="width: 34px; height: 34px; border-radius: 50%; background: var(--color-espresso); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+              C
+            </div>
+            <div>
+              <p class="dashboard-user-name" style="font-size: 0.85rem; font-weight: 600; color: var(--color-espresso); line-height: 1.2;">Valued Connoisseur</p>
+              <p style="font-size: 0.72rem; color: var(--color-copper); text-transform: uppercase;">STACKLY Club Member</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Sections -->
+      <div style="display: flex; flex-direction: column; gap: 0;">
+
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column; align-items: center;">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px; width: 100%;">My Flavor Profile Match</h2>
+          <div style="position: relative; width: 100%; max-width: 400px; height: 300px;"><canvas id="wishlistRadarChart"></canvas></div>
+          <p style="font-size: 0.8rem; color: #666; text-align: center; margin-top: 10px;">Based on your saved items, you prefer high acidity and floral aromas.</p>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Wishlist Categories</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="wishlistBarChart"></canvas></div>
+        </div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Saved Coffees</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
+          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px; position: relative;">
+            <i class="fa-solid fa-heart" style="color: #ef4444; position: absolute; top: 12px; right: 12px;"></i>
+            <h3 style="font-size: 1rem; color: #333; margin-bottom: 6px;">Geisha Reserve</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 12px;">Light Roast • Floral</p>
+            <button class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem;">Add to Cart (₹1,500)</button>
+          </div>
+          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px; position: relative;">
+            <i class="fa-solid fa-heart" style="color: #ef4444; position: absolute; top: 12px; right: 12px;"></i>
+            <h3 style="font-size: 1rem; color: #333; margin-bottom: 6px;">Monsoon Malabar</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 12px;">Dark Roast • Earthy</p>
+            <button class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem;">Add to Cart (₹650)</button>
+          </div>
+        </div>
+      </section>
+      
+      <section class="dashboard-section gsap-dash-element" style="background: #fffef0; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid #fde047;">
+        <h2 style="font-size: 1.4rem; color: #854d0e; margin-bottom: 16px;"><i class="fa-solid fa-tag"></i> Price Drop Alerts</h2>
+        <p style="font-size: 0.9rem; color: #713f12;">Great news! The <strong>Monsoon Malabar</strong> on your wishlist is currently 10% off this week.</p>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Tasting Journal</h2>
+        <textarea style="width: 100%; height: 100px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: none;" placeholder="Log your tasting notes here for future reference..."></textarea>
+        <button class="btn btn-copper" style="margin-top: 12px;">Save Note</button>
+      </section>
+    
+      </div>
+    </main>
+  </div>
+
+  <!-- GSAP & Chart.js CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+try { new Chart(document.getElementById('wishlistRadarChart'), {
+        type: 'radar',
+        data: { labels: ['Acidity', 'Body', 'Sweetness', 'Finish', 'Floral'], datasets: [{ label: 'My Ideal Cup', data: [4, 2, 4, 3, 5], backgroundColor: 'rgba(184, 115, 51, 0.4)', borderColor: '#b87333' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+       } catch (e) { console.error("Error initializing chart:", e); }
+try { new Chart(document.getElementById('wishlistBarChart'), {
+        type: 'bar',
+        data: { labels: ['Single Origin', 'Blends', 'Equipment', 'Merch'], datasets: [{ label: 'Saved Items', data: [8, 3, 2, 1], backgroundColor: '#1c1714' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+     } catch (e) { console.error("Error initializing chart:", e); }
+    });
+  </script>
+<script src="cart.js"></script>
+  <script src="main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".gsap-dash-element").forEach((el, i) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          delay: i * 0.05
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>

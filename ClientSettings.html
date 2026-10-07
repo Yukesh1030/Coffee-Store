@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — STACKLY COFFEE</title>
+  <meta name="description" content="Manage your specialty coffee subscriptions, track live roast deliveries, and view curated coffee recommendations.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="assets/Brand-logo.webp" alt="STACKLY" class="preloader-logo">
+    <div class="preloader-steam-container">
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+      <div class="preloader-steam-line"></div>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar: 5 Main Menus -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo-box">
+        <a href="ClientDashboard.html">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
+        </a>
+      </div>
+            <nav class="sidebar-menu">
+        <a href="ClientDashboard.html" class="sidebar-link "><i class="fa-solid fa-house-chimney"></i> Dashboard</a>
+        <a href="ClientOrders.html" class="sidebar-link "><i class="fa-solid fa-box-open"></i> My Orders</a>
+        <a href="ClientWishlist.html" class="sidebar-link "><i class="fa-solid fa-heart"></i> Wishlist</a>
+        <a href="ClientMessages.html" class="sidebar-link "><i class="fa-solid fa-envelope"></i> Messages</a>
+        <a href="ClientSettings.html" class="sidebar-link active"><i class="fa-solid fa-sliders"></i> Settings</a>
+        <a href="Login.html" class="sidebar-link" style="color: #ef4444;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+      </nav>
+      <div style="padding-top: 20px; border-top: 1px solid var(--color-espresso-border);">
+        <a href="index.html" class="sidebar-link"><i class="fa-solid fa-mug-saucer"></i> Explore Store</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div>
+          <span class="section-label" style="margin-bottom: 4px;">Welcome Back</span>
+          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Account & Settings</h1>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 10px; background: #fff; padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid rgba(28,23,20,0.1);">
+            <div class="dashboard-user-avatar" style="width: 34px; height: 34px; border-radius: 50%; background: var(--color-espresso); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+              C
+            </div>
+            <div>
+              <p class="dashboard-user-name" style="font-size: 0.85rem; font-weight: 600; color: var(--color-espresso); line-height: 1.2;">Valued Connoisseur</p>
+              <p style="font-size: 0.72rem; color: var(--color-copper); text-transform: uppercase;">STACKLY Club Member</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Sections -->
+      <div style="display: flex; flex-direction: column; gap: 0;">
+
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Loyalty Points Earned</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="loyaltyLineChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">My Brew Methods</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="brewMethodsChart"></canvas></div>
+        </div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Personal Profile</h2>
+        <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div><label style="font-size: 0.8rem; color: #555;">First Name</label><input type="text" value="Valued" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
+          <div><label style="font-size: 0.8rem; color: #555;">Last Name</label><input type="text" value="Connoisseur" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
+          <div style="grid-column: 1 / -1;"><label style="font-size: 0.8rem; color: #555;">Email Address</label><input type="email" value="client@stackly.com" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
+          <div style="grid-column: 1 / -1;"><button type="button" class="btn btn-copper">Save Changes</button></div>
+        </form>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Security</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <button class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start;">Change Password</button>
+          <button class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start;">Enable Two-Factor Auth (2FA)</button>
+        </div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Notification Preferences</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <label style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" checked> Receive exclusive roast drop emails</label>
+          <label style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" checked> Order status SMS updates</label>
+          <label style="display: flex; align-items: center; gap: 10px;"><input type="checkbox"> Marketing and promotional offers</label>
+        </div>
+      </section>
+    
+      </div>
+    </main>
+  </div>
+
+  <!-- GSAP & Chart.js CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+try { new Chart(document.getElementById('loyaltyLineChart'), {
+        type: 'line',
+        data: { labels: ['Q1', 'Q2', 'Q3', 'Q4'], datasets: [{ label: 'Points', data: [150, 420, 310, 850], borderColor: '#10b981', tension: 0.4, fill: true, backgroundColor: 'rgba(16,185,129,0.1)' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+       } catch (e) { console.error("Error initializing chart:", e); }
+try { new Chart(document.getElementById('brewMethodsChart'), {
+        type: 'pie',
+        data: { labels: ['Espresso Machine', 'V60 Pour Over', 'French Press'], datasets: [{ data: [60, 30, 10], backgroundColor: ['#1c1714', '#b87333', '#94a3b8'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+     } catch (e) { console.error("Error initializing chart:", e); }
+    });
+  </script>
+<script src="cart.js"></script>
+  <script src="main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".gsap-dash-element").forEach((el, i) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          delay: i * 0.05
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>

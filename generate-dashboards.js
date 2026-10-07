@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const adminHTML = fs.readFileSync('AdminDashboard.html', 'utf8');
 
-// The common sidebar menu replacement logic
 function getSidebar(activePage) {
   return `      <nav class="sidebar-menu">
         <a href="AdminDashboard.html" class="sidebar-link ${activePage === 'Overview' ? 'active' : ''}"><i class="fa-solid fa-chart-pie"></i> Overview</a>
@@ -22,234 +21,331 @@ function getSidebar(activePage) {
 const pages = [
   {
     name: 'Products',
-    title: 'Product Inventory',
+    title: 'Product Analytics',
     filename: 'Products.html',
     sections: `
-      <!-- 1. Inventory Table -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Active Inventory</h2>
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-              <tr style="border-bottom: 2px solid var(--color-espresso-border);">
-                <th style="padding: 12px; font-size: 0.85rem; color: var(--color-text-muted);">PRODUCT</th>
-                <th style="padding: 12px; font-size: 0.85rem; color: var(--color-text-muted);">SKU</th>
-                <th style="padding: 12px; font-size: 0.85rem; color: var(--color-text-muted);">PRICE</th>
-                <th style="padding: 12px; font-size: 0.85rem; color: var(--color-text-muted);">STOCK</th>
-                <th style="padding: 12px; font-size: 0.85rem; color: var(--color-text-muted);">ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--color-espresso-border);">
-                <td style="padding: 12px; font-weight: 600;">Midnight Roast</td>
-                <td style="padding: 12px; font-size: 0.85rem;">MR-500-WB</td>
-                <td style="padding: 12px;">₹720</td>
-                <td style="padding: 12px;"><span style="background: #d1fae5; color: #065f46; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">124 in stock</span></td>
-                <td style="padding: 12px;"><a href="#" style="color: var(--color-copper); font-size: 0.85rem;">Edit</a></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- 1. Top Section: Charts Grid -->
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Sales Volume by Type</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="productSalesChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Stock Distribution</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="stockDistributionChart"></canvas></div>
         </div>
       </section>
 
-      <!-- 2. Add New Product Form -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Add New Origin</h2>
-        <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-          <div><label style="display: block; font-size: 0.8rem; margin-bottom: 6px;">Bean Name</label><input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
-          <div><label style="display: block; font-size: 0.8rem; margin-bottom: 6px;">Roast Level</label><select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"><option>Light</option><option>Medium</option><option>Dark</option></select></div>
-          <div style="grid-column: 1 / -1;"><button class="btn btn-copper">Save Product</button></div>
-        </form>
-      </section>
-
-      <!-- 3. Inventory Alerts -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fffef0; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid #fde047;">
-        <h2 style="font-size: 1.4rem; color: #854d0e; margin-bottom: 16px;"><i class="fa-solid fa-triangle-exclamation"></i> Low Stock Alerts</h2>
-        <p style="font-size: 0.9rem; color: #713f12; margin-bottom: 8px;"><strong>Ethiopia Yirgacheffe:</strong> Only 4 bags left.</p>
-        <p style="font-size: 0.9rem; color: #713f12;"><strong>Colombia Supremo:</strong> Only 8 bags left.</p>
-      </section>
-
-      <!-- 4. Categories -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Categories & Tags</h2>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="background: var(--color-cream); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Single Origin <i class="fa-solid fa-xmark"></i></span>
-          <span style="background: var(--color-cream); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Blends <i class="fa-solid fa-xmark"></i></span>
-          <span style="background: var(--color-cream); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Decaf <i class="fa-solid fa-xmark"></i></span>
-          <button style="border: 1px dashed var(--color-copper); background: transparent; padding: 6px 12px; border-radius: 20px; color: var(--color-copper); cursor: pointer;">+ Add Tag</button>
+      <!-- 2. Flavor Profile Radar -->
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08); display: flex; flex-direction: column; align-items: center;">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px; width: 100%;">Signature Blend Quality Control</h2>
+        <div style="position: relative; width: 100%; max-width: 500px; height: 350px;">
+          <canvas id="flavorRadarChart"></canvas>
         </div>
       </section>
 
-      <!-- 5. Pricing Strategies -->
+      <!-- 3. Velocity Trend -->
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Wholesale Pricing Rules</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 12px;">Active rules applied to B2B customers.</p>
-        <ul style="font-size: 0.9rem; padding-left: 20px;">
-          <li>Orders over 5kg: 15% discount.</li>
-          <li>Orders over 10kg: 25% discount.</li>
-        </ul>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Product Velocity (12 Months)</h2>
+        <div style="position: relative; height: 300px; width: 100%;"><canvas id="velocityChart"></canvas></div>
       </section>
+
+      <!-- 4. Advanced Grid -->
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Inventory Health Grid</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;">
+          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px;">
+            <h3 style="font-size: 1rem; color: #333;">Midnight Roast</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">Stock: 120 / 500 bags</p>
+            <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;"><div style="width: 24%; background: #ef4444; height: 100%; border-radius: 3px;"></div></div>
+          </div>
+          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px;">
+            <h3 style="font-size: 1rem; color: #333;">Ethiopia Yirgacheffe</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">Stock: 340 / 400 bags</p>
+            <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;"><div style="width: 85%; background: #10b981; height: 100%; border-radius: 3px;"></div></div>
+          </div>
+        </div>
+      </section>
+    `,
+    chartsInit: `
+      new Chart(document.getElementById('productSalesChart'), {
+        type: 'bar',
+        data: { labels: ['Single Origin', 'Blends', 'Decaf', 'Cold Brew'], datasets: [{ label: 'Sales (kg)', data: [450, 800, 120, 200], backgroundColor: '#b87333' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('stockDistributionChart'), {
+        type: 'doughnut',
+        data: { labels: ['Light', 'Medium', 'Dark'], datasets: [{ data: [30, 50, 20], backgroundColor: ['#fde047', '#b87333', '#1c1714'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('flavorRadarChart'), {
+        type: 'radar',
+        data: { labels: ['Acidity', 'Body', 'Sweetness', 'Finish', 'Aroma'], datasets: [{ label: 'Midnight Roast', data: [3, 5, 2, 4, 4], backgroundColor: 'rgba(184, 115, 51, 0.4)', borderColor: '#b87333' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('velocityChart'), {
+        type: 'line',
+        data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Units Sold', data: [120, 190, 300, 250, 220, 400], borderColor: '#1c1714', tension: 0.4, fill: true, backgroundColor: 'rgba(28,23,20,0.1)' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     `
   },
   {
     name: 'Orders',
-    title: 'Order Management',
+    title: 'Order Operations',
     filename: 'Orders.html',
     sections: `
-      <!-- 1. Live Queue -->
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Daily Order Volume</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="orderVolumeChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Fulfillment Status</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="fulfillmentPieChart"></canvas></div>
+        </div>
+      </section>
+
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Live Queue</h2>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;"><h3 style="font-size: 0.9rem; color: #475569;">To Roast (4)</h3></div>
-          <div style="background: #f0fdf4; padding: 16px; border-radius: 8px;"><h3 style="font-size: 0.9rem; color: #166534;">To Pack (12)</h3></div>
-          <div style="background: #eff6ff; padding: 16px; border-radius: 8px;"><h3 style="font-size: 0.9rem; color: #1e3a8a;">Ready to Ship (2)</h3></div>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Revenue by Region</h2>
+        <div style="position: relative; height: 300px; width: 100%;"><canvas id="regionBarChart"></canvas></div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Active Fulfillment Pipeline</h2>
+        <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px;">
+          <div style="min-width: 250px; background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h3 style="font-size: 0.9rem; color: #475569; margin-bottom: 12px;">To Roast (4)</h3>
+            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8820 - Midnight Roast</div>
+          </div>
+          <div style="min-width: 250px; background: #f0fdf4; padding: 16px; border-radius: 8px;">
+            <h3 style="font-size: 0.9rem; color: #166534; margin-bottom: 12px;">To Pack (12)</h3>
+            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8815 - Ethiopia</div>
+          </div>
+          <div style="min-width: 250px; background: #eff6ff; padding: 16px; border-radius: 8px;">
+            <h3 style="font-size: 0.9rem; color: #1e3a8a; margin-bottom: 12px;">Ready to Ship (2)</h3>
+            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8790 - Columbia</div>
+          </div>
         </div>
       </section>
       
-      <!-- 2. Dispatch -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Dispatch Integrations</h2>
-        <button class="btn btn-copper">Sync with BlueDart</button>
-        <button class="btn" style="background: #ddd; color: #333;">Sync with Delhivery</button>
+      <section class="dashboard-section gsap-dash-element" style="background: linear-gradient(135deg, #1c1714, #4a3424); color: #fff; padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center;">
+        <h2 style="font-size: 1.2rem; margin-bottom: 16px; color: #d1d5db;">Average Order Value (AOV)</h2>
+        <div style="font-size: 3rem; font-weight: 700; color: var(--color-copper);">₹1,840</div>
+        <p style="font-size: 0.9rem; color: #10b981; margin-top: 8px;"><i class="fa-solid fa-arrow-trend-up"></i> +12% from last month</p>
       </section>
-
-      <!-- 3. Order Search -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Find Order</h2>
-        <input type="text" placeholder="Search by ID or Email..." style="width: 100%; max-width: 400px; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
-      </section>
-
-      <!-- 4. Returns -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Returns & Exceptions</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">No active returns or delivery exceptions today.</p>
-      </section>
-
-      <!-- 5. Packaging -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Packaging Stock</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">250g Pouches: 450 units left</p>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">500g Pouches: 120 units left</p>
-      </section>
+    `,
+    chartsInit: `
+      new Chart(document.getElementById('orderVolumeChart'), {
+        type: 'line',
+        data: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], datasets: [{ label: 'Orders', data: [12, 19, 15, 25, 22, 30, 28], borderColor: '#b87333', tension: 0.3 }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('fulfillmentPieChart'), {
+        type: 'pie',
+        data: { labels: ['To Pack', 'Shipped', 'Delivered', 'Cancelled'], datasets: [{ data: [15, 40, 42, 3], backgroundColor: ['#fbbf24', '#3b82f6', '#10b981', '#ef4444'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('regionBarChart'), {
+        type: 'bar',
+        data: { labels: ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Pune'], datasets: [{ label: 'Revenue (₹)', data: [45000, 32000, 58000, 21000, 15000], backgroundColor: '#1c1714' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     `
   },
   {
     name: 'Customers',
-    title: 'Customer Management',
+    title: 'Customer Insights',
     filename: 'Customers.html',
     sections: `
-      <!-- 1. Directory -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Customer Directory</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">Viewing 1,245 active customers.</p>
-      </section>
-      
-      <!-- 2. VIP Club -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">STACKLY Club Subscriptions</h2>
-        <div style="font-size: 1.2rem; font-weight: bold; color: var(--color-copper);">342 Active Subscribers</div>
-      </section>
-
-      <!-- 3. Support -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Support Tickets</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">2 pending inquiries regarding brewing methods.</p>
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Customer Growth</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="customerGrowthChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Loyalty Tiers</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="loyaltyPolarChart"></canvas></div>
+        </div>
       </section>
 
-      <!-- 4. Loyalty -->
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Loyalty Program</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">Reward ratio: 1 Point = ₹1 spent.</p>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">CAC vs LTV (₹)</h2>
+        <div style="position: relative; height: 300px; width: 100%;"><canvas id="cacChart"></canvas></div>
       </section>
 
-      <!-- 5. Segments -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Audience Segments</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">Espresso lovers: 45% | Pour-over fans: 30%</p>
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Customer Demographics</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="demoDoughnutChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Recent Sentiments</h2>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"Best espresso blend in India!" - <strong style="color: #10b981;">Positive (98%)</strong></div>
+            <div style="padding: 12px; border-left: 4px solid #fbbf24; background: #f8fafc;">"Delivery took 4 days." - <strong style="color: #fbbf24;">Neutral (50%)</strong></div>
+            <div style="padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"The packaging is stunning." - <strong style="color: #10b981;">Positive (92%)</strong></div>
+          </div>
+        </div>
       </section>
+    `,
+    chartsInit: `
+      new Chart(document.getElementById('customerGrowthChart'), {
+        type: 'line',
+        data: { labels: ['W1', 'W2', 'W3', 'W4'], datasets: [{ label: 'New', data: [120, 150, 180, 220], borderColor: '#b87333' }, { label: 'Returning', data: [80, 110, 140, 190], borderColor: '#1c1714' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('loyaltyPolarChart'), {
+        type: 'polarArea',
+        data: { labels: ['Bronze', 'Silver', 'Gold', 'VIP'], datasets: [{ data: [500, 250, 100, 20], backgroundColor: ['#cd7f32', '#c0c0c0', '#ffd700', '#1c1714'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('cacChart'), {
+        type: 'bar',
+        data: { labels: ['Q1', 'Q2', 'Q3', 'Q4'], datasets: [{ label: 'CAC', data: [250, 220, 200, 180], backgroundColor: '#ef4444' }, { label: 'LTV', data: [2400, 2800, 3100, 3500], backgroundColor: '#10b981' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('demoDoughnutChart'), {
+        type: 'doughnut',
+        data: { labels: ['Espresso Fanatics', 'Filter Enthusiasts', 'Cold Brew Lovers'], datasets: [{ data: [45, 35, 20], backgroundColor: ['#1c1714', '#b87333', '#64748b'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     `
   },
   {
     name: 'RoastBatches',
-    title: 'Roastery Operations',
+    title: 'Roastery Telemetry',
     filename: 'RoastBatches.html',
     sections: `
-      <!-- 1. Telemetry -->
-      <section class="dashboard-section gsap-dash-element" style="background: #111; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-        <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 16px;">Live Loring S7 Telemetry</h2>
-        <div style="height: 150px; border-bottom: 1px dashed #333; display: flex; align-items: flex-end; gap: 4px;">
-          <div style="width: 10%; height: 20%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 40%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 70%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 90%; background: #ef4444;"></div>
+      <section class="dashboard-section gsap-dash-element" style="background: #111; padding: 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h2 style="font-size: 1.4rem; color: #fff;">Live Loring S7 Telemetry</h2>
+          <span style="background: #ef4444; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; animation: pulse 2s infinite;">● ROASTING</span>
+        </div>
+        <div style="position: relative; height: 350px; width: 100%;"><canvas id="telemetryChart"></canvas></div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Output Volume (kg)</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="outputBarChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Green Bean Inventory</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="greenBeanChart"></canvas></div>
         </div>
       </section>
-      
-      <!-- 2. Schedule -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Today's Roast Plan</h2>
-        <p style="font-size: 0.9rem;">10:00 AM - Midnight Roast (20kg)</p>
-        <p style="font-size: 0.9rem;">01:00 PM - Artisan Blend (15kg)</p>
-      </section>
 
-      <!-- 3. QC -->
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Cupping Scores</h2>
-        <p style="font-size: 0.9rem;">Batch #8892: Score 86.5 (Passed)</p>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Machine Efficiency</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
+          <div style="flex: 1; min-width: 200px;">
+            <div style="position: relative; height: 250px; width: 100%;"><canvas id="efficiencyChart"></canvas></div>
+          </div>
+          <div style="flex: 2; min-width: 250px;">
+            <h3 style="font-size: 1rem; color: #333; margin-bottom: 12px;">Upcoming Schedule</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                <span>10:00 AM - Midnight Roast</span> <span style="font-weight: bold; color: var(--color-copper);">20kg</span>
+              </li>
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                <span>01:00 PM - Artisan Blend</span> <span style="font-weight: bold; color: var(--color-copper);">15kg</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
-
-      <!-- 4. Green Bean -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Green Bean Silo Levels</h2>
-        <p style="font-size: 0.9rem;">Silo A (Ethiopia): 120kg</p>
-        <p style="font-size: 0.9rem;">Silo B (Colombia): 85kg</p>
-      </section>
-
-      <!-- 5. Maintenance -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Machine Maintenance</h2>
-        <p style="font-size: 0.9rem; color: #ef4444;"><i class="fa-solid fa-wrench"></i> Drum cleaning due in 2 days.</p>
-      </section>
+      <style>@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }</style>
+    `,
+    chartsInit: `
+      new Chart(document.getElementById('telemetryChart'), {
+        type: 'line',
+        data: { labels: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00'], datasets: [{ label: 'Bean Temp (°C)', data: [20, 100, 150, 180, 200, 215, 220], borderColor: '#b87333', tension: 0.4 }, { label: 'Air Temp (°C)', data: [200, 180, 210, 230, 240, 245, 250], borderColor: '#475569', tension: 0.4, borderDash: [5, 5] }] },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#333' } }, x: { grid: { color: '#333' } } }, plugins: { legend: { labels: { color: '#fff' } } } }
+      });
+      new Chart(document.getElementById('outputBarChart'), {
+        type: 'bar',
+        data: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], datasets: [{ label: 'Roasted (kg)', data: [45, 50, 30, 60, 55], backgroundColor: '#1c1714' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('greenBeanChart'), {
+        type: 'bar',
+        data: { labels: ['Ethiopia', 'Colombia', 'Brazil', 'Guatemala'], datasets: [{ label: 'Stock (kg)', data: [120, 85, 200, 50], backgroundColor: '#10b981' }] },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('efficiencyChart'), {
+        type: 'doughnut',
+        data: { labels: ['Roasting', 'Idle', 'Cleaning'], datasets: [{ data: [75, 15, 10], backgroundColor: ['#b87333', '#cbd5e1', '#ef4444'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     `
   },
   {
     name: 'StoreSettings',
-    title: 'Store Settings',
+    title: 'System & Analytics',
     filename: 'StoreSettings.html',
     sections: `
-      <!-- 1. Profile -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Store Profile</h2>
-        <input type="text" value="STACKLY COFFEE" style="padding: 10px; width: 100%; max-width: 300px; border: 1px solid #ddd;">
-      </section>
-      
-      <!-- 2. Payments -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Payment Gateways</h2>
-        <label style="display: flex; gap: 10px;"><input type="checkbox" checked> Stripe</label>
-        <label style="display: flex; gap: 10px; margin-top: 8px;"><input type="checkbox" checked> Razorpay</label>
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">API Usage & Rate Limits</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="apiUsageChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Payment Gateway Split</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="gatewayPieChart"></canvas></div>
+        </div>
       </section>
 
-      <!-- 3. Shipping -->
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Shipping Zones</h2>
-        <p style="font-size: 0.9rem;">Domestic: Flat ₹50 (Free over ₹1000)</p>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Staff Activity Log</h2>
+        <div style="position: relative; height: 300px; width: 100%;"><canvas id="staffBarChart"></canvas></div>
       </section>
 
-      <!-- 4. Staff -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Staff Permissions</h2>
-        <ul style="padding-left: 20px;">
-          <li>Yukesh (Admin)</li>
-          <li>John (Roaster)</li>
-        </ul>
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Server Storage</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="storageDoughnutChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">System Health</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; text-align: center;">
+              <div style="font-size: 1.5rem; font-weight: bold; color: #166534;">99.9%</div>
+              <div style="font-size: 0.8rem; color: #475569;">Uptime</div>
+            </div>
+            <div style="background: #eff6ff; padding: 16px; border-radius: 8px; text-align: center;">
+              <div style="font-size: 1.5rem; font-weight: bold; color: #1e3a8a;">45ms</div>
+              <div style="font-size: 0.8rem; color: #475569;">Avg Latency</div>
+            </div>
+            <div style="background: #fff1f2; padding: 16px; border-radius: 8px; text-align: center; grid-column: 1 / -1;">
+              <div style="font-size: 1.5rem; font-weight: bold; color: #be123c;">0.01%</div>
+              <div style="font-size: 0.8rem; color: #475569;">Error Rate</div>
+            </div>
+          </div>
+        </div>
       </section>
-
-      <!-- 5. Integrations -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">API & Webhooks</h2>
-        <button class="btn btn-copper">Generate API Key</button>
-      </section>
+    `,
+    chartsInit: `
+      new Chart(document.getElementById('apiUsageChart'), {
+        type: 'line',
+        data: { labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'], datasets: [{ label: 'Requests/sec', data: [5, 2, 25, 45, 30, 15], borderColor: '#3b82f6', fill: true, backgroundColor: 'rgba(59,130,246,0.1)' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('gatewayPieChart'), {
+        type: 'pie',
+        data: { labels: ['Stripe', 'Razorpay', 'PayPal'], datasets: [{ data: [65, 30, 5], backgroundColor: ['#6366f1', '#3b82f6', '#0ea5e9'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('staffBarChart'), {
+        type: 'bar',
+        data: { labels: ['Yukesh', 'John', 'Sarah', 'Mike'], datasets: [{ label: 'Actions Logged', data: [150, 85, 120, 45], backgroundColor: '#b87333' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('storageDoughnutChart'), {
+        type: 'doughnut',
+        data: { labels: ['Images', 'Database', 'Logs', 'Free'], datasets: [{ data: [45, 15, 10, 30], backgroundColor: ['#1c1714', '#b87333', '#94a3b8', '#e2e8f0'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     `
   }
 ];
@@ -277,7 +373,6 @@ const gsapScript = '<script>\n' +
   '</script>';
 
 const beforeNav = adminHTML.substring(0, adminHTML.indexOf('<nav class="sidebar-menu">'));
-// We find where the sidebar ends to capture everything after it
 const afterAsideIndex = adminHTML.indexOf('</aside>') + 8;
 const afterNav = adminHTML.substring(afterAsideIndex);
 
@@ -285,24 +380,26 @@ const beforeMainHeader = afterNav.substring(0, afterNav.indexOf('</header>') + 9
 const afterMain = afterNav.substring(afterNav.indexOf('</main>'));
 const htmlEnd = afterMain.substring(afterMain.indexOf('<script'));
 
-// 1. Update AdminDashboard.html to have the correct sidebar links (including the bottom div)
-let newAdminHTML = beforeNav + getSidebar('Overview') + afterNav;
-fs.writeFileSync('AdminDashboard.html', newAdminHTML);
-console.log('Updated AdminDashboard.html');
-
-// 2. Generate the 5 new pages
+// Generate the 5 new pages
 pages.forEach(page => {
   let customHeader = beforeMainHeader.replace('Admin Overview', page.title);
   
+  let chartsInitSafe = page.chartsInit.split('new Chart').filter(s => s.trim()).map(s => {
+    return 'try { new Chart' + s + ' } catch (e) { console.error("Error initializing chart:", e); }';
+  }).join('\n');
+
   let newPageHTML = beforeNav + getSidebar(page.name) + customHeader + 
     '\n\n      <!-- Dynamic Sections -->\n      <div style="display: flex; flex-direction: column; gap: 0;">\n' + 
     page.sections + 
     '\n      </div>\n' + 
     '    </main>\n  </div>\n\n' +
+    '  <!-- GSAP & Chart.js CDNs -->\n' +
+    '  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>\n' +
     '  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>\n' +
     '  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>\n' +
+    '  <script>\n    document.addEventListener("DOMContentLoaded", function() {\n' + chartsInitSafe + '\n    });\n  </script>\n' +
     htmlEnd.replace('</body>', gsapScript + '\n</body>');
   
   fs.writeFileSync(page.filename, newPageHTML);
-  console.log('Created ' + page.filename);
+  console.log('Created ' + page.filename + ' with Chart.js integration (Fixed Wrapper Glitch).');
 });

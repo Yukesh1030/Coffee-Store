@@ -28,7 +28,7 @@
         <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
         </a>
       </div>
-                  <nav class="sidebar-menu">
+                        <nav class="sidebar-menu">
         <a href="AdminDashboard.html" class="sidebar-link "><i class="fa-solid fa-chart-pie"></i> Overview</a>
         <a href="Products.html" class="sidebar-link "><i class="fa-solid fa-box-archive"></i> Products (86)</a>
         <a href="Orders.html" class="sidebar-link "><i class="fa-solid fa-cart-flatbed"></i> Orders (18)</a>
@@ -48,7 +48,7 @@
       <header class="dashboard-header">
         <div>
           <span class="section-label" style="margin-bottom: 4px;">Control Center</span>
-          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Roastery Operations</h1>
+          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Roastery Telemetry</h1>
         </div>
         <div style="display: flex; align-items: center; gap: 16px;">
           <a href="404.html" class="btn btn-outline-copper btn-sm"><i class="fa-solid fa-house"></i> Home</a>
@@ -67,49 +67,82 @@
       <!-- Dynamic Sections -->
       <div style="display: flex; flex-direction: column; gap: 0;">
 
-      <!-- 1. Telemetry -->
-      <section class="dashboard-section gsap-dash-element" style="background: #111; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-        <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 16px;">Live Loring S7 Telemetry</h2>
-        <div style="height: 150px; border-bottom: 1px dashed #333; display: flex; align-items: flex-end; gap: 4px;">
-          <div style="width: 10%; height: 20%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 40%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 70%; background: var(--color-copper);"></div>
-          <div style="width: 10%; height: 90%; background: #ef4444;"></div>
+      <section class="dashboard-section gsap-dash-element" style="background: #111; padding: 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h2 style="font-size: 1.4rem; color: #fff;">Live Loring S7 Telemetry</h2>
+          <span style="background: #ef4444; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; animation: pulse 2s infinite;">● ROASTING</span>
+        </div>
+        <div style="position: relative; height: 350px; width: 100%;"><canvas id="telemetryChart"></canvas></div>
+      </section>
+
+      <section class="dashboard-section gsap-dash-element" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Output Volume (kg)</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="outputBarChart"></canvas></div>
+        </div>
+        <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
+          <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Green Bean Inventory</h2>
+          <div style="position: relative; height: 250px; width: 100%;"><canvas id="greenBeanChart"></canvas></div>
         </div>
       </section>
-      
-      <!-- 2. Schedule -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Today's Roast Plan</h2>
-        <p style="font-size: 0.9rem;">10:00 AM - Midnight Roast (20kg)</p>
-        <p style="font-size: 0.9rem;">01:00 PM - Artisan Blend (15kg)</p>
-      </section>
 
-      <!-- 3. QC -->
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Cupping Scores</h2>
-        <p style="font-size: 0.9rem;">Batch #8892: Score 86.5 (Passed)</p>
+        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Machine Efficiency</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
+          <div style="flex: 1; min-width: 200px;">
+            <div style="position: relative; height: 250px; width: 100%;"><canvas id="efficiencyChart"></canvas></div>
+          </div>
+          <div style="flex: 2; min-width: 250px;">
+            <h3 style="font-size: 1rem; color: #333; margin-bottom: 12px;">Upcoming Schedule</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                <span>10:00 AM - Midnight Roast</span> <span style="font-weight: bold; color: var(--color-copper);">20kg</span>
+              </li>
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                <span>01:00 PM - Artisan Blend</span> <span style="font-weight: bold; color: var(--color-copper);">15kg</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
-
-      <!-- 4. Green Bean -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Green Bean Silo Levels</h2>
-        <p style="font-size: 0.9rem;">Silo A (Ethiopia): 120kg</p>
-        <p style="font-size: 0.9rem;">Silo B (Colombia): 85kg</p>
-      </section>
-
-      <!-- 5. Maintenance -->
-      <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
-        <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Machine Maintenance</h2>
-        <p style="font-size: 0.9rem; color: #ef4444;"><i class="fa-solid fa-wrench"></i> Drum cleaning due in 2 days.</p>
-      </section>
+      <style>@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }</style>
     
       </div>
     </main>
   </div>
 
+  <!-- GSAP & Chart.js CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+try { new Chart(document.getElementById('telemetryChart'), {
+        type: 'line',
+        data: { labels: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00'], datasets: [{ label: 'Bean Temp (°C)', data: [20, 100, 150, 180, 200, 215, 220], borderColor: '#b87333', tension: 0.4 }, { label: 'Air Temp (°C)', data: [200, 180, 210, 230, 240, 245, 250], borderColor: '#475569', tension: 0.4, borderDash: [5, 5] }] },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#333' } }, x: { grid: { color: '#333' } } }, plugins: { legend: { labels: { color: '#fff' } } } }
+      });
+       } catch (e) { console.error("Error initializing chart:", e); }
+try { new Chart(document.getElementById('outputBarChart'), {
+        type: 'bar',
+        data: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], datasets: [{ label: 'Roasted (kg)', data: [45, 50, 30, 60, 55], backgroundColor: '#1c1714' }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+       } catch (e) { console.error("Error initializing chart:", e); }
+try { new Chart(document.getElementById('greenBeanChart'), {
+        type: 'bar',
+        data: { labels: ['Ethiopia', 'Colombia', 'Brazil', 'Guatemala'], datasets: [{ label: 'Stock (kg)', data: [120, 85, 200, 50], backgroundColor: '#10b981' }] },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false }
+      });
+       } catch (e) { console.error("Error initializing chart:", e); }
+try { new Chart(document.getElementById('efficiencyChart'), {
+        type: 'doughnut',
+        data: { labels: ['Roasting', 'Idle', 'Cleaning'], datasets: [{ data: [75, 15, 10], backgroundColor: ['#b87333', '#cbd5e1', '#ef4444'] }] },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+     } catch (e) { console.error("Error initializing chart:", e); }
+    });
+  </script>
 <script src="main.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
