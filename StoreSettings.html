@@ -23,10 +23,13 @@
   <div class="dashboard-layout">
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
-      <div class="sidebar-logo-box">
+      <div class="sidebar-logo-box" style="display: flex; align-items: center; justify-content: space-between;">
         <a href="AdminDashboard.html">
         <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
         </a>
+        <button class="sidebar-close-btn" onclick="toggleSidebar(false)" aria-label="Close Navigation">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
                         <nav class="sidebar-menu">
         <a href="AdminDashboard.html" class="sidebar-link "><i class="fa-solid fa-chart-pie"></i> Overview</a>
@@ -41,14 +44,20 @@
         <a href="index.html" class="sidebar-link"><i class="fa-solid fa-globe"></i> View Website</a>
       </div>
     </aside>
+    <div class="dashboard-overlay" onclick="toggleSidebar(false)"></div>
 
     <!-- Main Content -->
     <main class="dashboard-main">
       <!-- Header -->
       <header class="dashboard-header">
-        <div>
-          <span class="section-label" style="margin-bottom: 4px;">Control Center</span>
-          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">System & Analytics</h1>
+        <div style="display: flex; align-items: center;">
+          <button class="hamburger-btn" onclick="toggleSidebar()" aria-label="Open Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <span class="section-label" style="margin-bottom: 4px;">Control Center</span>
+            <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">System & Analytics</h1>
+          </div>
         </div>
         <div style="display: flex; align-items: center; gap: 16px;">
           <a href="404.html" class="btn btn-outline-copper btn-sm"><i class="fa-solid fa-house"></i> Home</a>

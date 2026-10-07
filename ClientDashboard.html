@@ -23,12 +23,15 @@
   <div class="dashboard-layout">
     <!-- Sidebar: 5 Main Menus -->
     <aside class="dashboard-sidebar">
-      <div class="sidebar-logo-box">
+      <div class="sidebar-logo-box" style="display: flex; align-items: center; justify-content: space-between;">
         <a href="ClientDashboard.html">
         <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 32px; filter: brightness(1.2);">
         </a>
+        <button class="sidebar-close-btn" onclick="toggleSidebar(false)" aria-label="Close Navigation">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
-            <nav class="sidebar-menu">
+                              <nav class="sidebar-menu">
         <a href="ClientDashboard.html" class="sidebar-link active"><i class="fa-solid fa-house-chimney"></i> Dashboard</a>
         <a href="ClientOrders.html" class="sidebar-link "><i class="fa-solid fa-box-open"></i> My Orders</a>
         <a href="ClientWishlist.html" class="sidebar-link "><i class="fa-solid fa-heart"></i> Wishlist</a>
@@ -40,14 +43,20 @@
         <a href="index.html" class="sidebar-link"><i class="fa-solid fa-mug-saucer"></i> Explore Store</a>
       </div>
     </aside>
+    <div class="dashboard-overlay" onclick="toggleSidebar(false)"></div>
 
     <!-- Main Content -->
     <main class="dashboard-main">
       <!-- Header -->
       <header class="dashboard-header">
-        <div>
-          <span class="section-label" style="margin-bottom: 4px;">Welcome Back</span>
-          <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Client Dashboard</h1>
+        <div style="display: flex; align-items: center;">
+          <button class="hamburger-btn" onclick="toggleSidebar()" aria-label="Open Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <span class="section-label" style="margin-bottom: 4px;">Welcome Back</span>
+            <h1 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--color-espresso);">Client Dashboard</h1>
+          </div>
         </div>
         <div style="display: flex; align-items: center; gap: 16px;">
           <div style="display: flex; align-items: center; gap: 10px; background: #fff; padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid rgba(28,23,20,0.1);">
@@ -105,7 +114,7 @@
       </section>
 
       <!-- Two Column: Recommended & Messages -->
-      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;">
+      <div class="dashboard-grid-2col">
         <!-- Recommended Based on Purchases -->
         <section class="dashboard-card">
           <div style="margin-bottom: 20px;">
