@@ -41,7 +41,7 @@ const pages = [
             <h3 style="font-size: 1.1rem; color: #333;">The Connoisseur Tier</h3>
             <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Next delivery: Oct 12th (Midnight Roast - 250g)</p>
           </div>
-          <button class="btn btn-copper" style="padding: 8px 16px;">Manage Subscription</button>
+          <a href="404.html" class="btn btn-copper" style="padding: 8px 16px; text-decoration: none;">Manage Subscription</a>
         </div>
       </section>
 
@@ -50,11 +50,11 @@ const pages = [
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
           <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
             <h3 style="font-size: 1rem; color: #333; margin-bottom: 10px;">Ethiopia Yirgacheffe</h3>
-            <button class="btn" style="background: var(--color-espresso); color: #fff; width: 100%; padding: 8px;">Reorder (₹850)</button>
+            <a href="404.html" class="btn" style="background: var(--color-espresso); color: #fff; width: 100%; padding: 8px; display: block; text-align: center; text-decoration: none;">Reorder (₹850)</a>
           </div>
           <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px; text-align: center;">
             <h3 style="font-size: 1rem; color: #333; margin-bottom: 10px;">Colombia Supremo</h3>
-            <button class="btn" style="background: var(--color-espresso); color: #fff; width: 100%; padding: 8px;">Reorder (₹720)</button>
+            <a href="404.html" class="btn" style="background: var(--color-espresso); color: #fff; width: 100%; padding: 8px; display: block; text-align: center; text-decoration: none;">Reorder (₹720)</a>
           </div>
         </div>
       </section>
@@ -73,13 +73,13 @@ const pages = [
             </thead>
             <tbody>
               <tr style="border-bottom: 1px solid var(--color-espresso-border);">
-                <td style="padding: 12px; font-weight: 600;">#ORD-1024</td>
+                <td style="padding: 12px;"><a href="404.html" style="font-weight: 600; color: var(--color-copper); text-decoration: none;">#ORD-1024</a></td>
                 <td style="padding: 12px; font-size: 0.85rem;">Oct 01, 2026</td>
                 <td style="padding: 12px;"><span style="background: #d1fae5; color: #065f46; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">Delivered</span></td>
                 <td style="padding: 12px;">₹1,570</td>
               </tr>
               <tr style="border-bottom: 1px solid var(--color-espresso-border);">
-                <td style="padding: 12px; font-weight: 600;">#ORD-0988</td>
+                <td style="padding: 12px;"><a href="404.html" style="font-weight: 600; color: var(--color-copper); text-decoration: none;">#ORD-0988</a></td>
                 <td style="padding: 12px; font-size: 0.85rem;">Sep 15, 2026</td>
                 <td style="padding: 12px;"><span style="background: #d1fae5; color: #065f46; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">Delivered</span></td>
                 <td style="padding: 12px;">₹850</td>
@@ -126,13 +126,13 @@ const pages = [
             <i class="fa-solid fa-heart" style="color: #ef4444; position: absolute; top: 12px; right: 12px;"></i>
             <h3 style="font-size: 1rem; color: #333; margin-bottom: 6px;">Geisha Reserve</h3>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 12px;">Light Roast • Floral</p>
-            <button class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem;">Add to Cart (₹1,500)</button>
+            <a href="404.html" class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem; display: block; text-align: center; text-decoration: none;">Add to Cart (₹1,500)</a>
           </div>
           <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px; position: relative;">
             <i class="fa-solid fa-heart" style="color: #ef4444; position: absolute; top: 12px; right: 12px;"></i>
             <h3 style="font-size: 1rem; color: #333; margin-bottom: 6px;">Monsoon Malabar</h3>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 12px;">Dark Roast • Earthy</p>
-            <button class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem;">Add to Cart (₹650)</button>
+            <a href="404.html" class="btn btn-copper" style="width: 100%; padding: 8px; font-size: 0.85rem; display: block; text-align: center; text-decoration: none;">Add to Cart (₹650)</a>
           </div>
         </div>
       </section>
@@ -144,8 +144,12 @@ const pages = [
 
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Tasting Journal</h2>
-        <textarea style="width: 100%; height: 100px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: none;" placeholder="Log your tasting notes here for future reference..."></textarea>
-        <button class="btn btn-copper" style="margin-top: 12px;">Save Note</button>
+        <form id="tastingJournalForm" novalidate>
+          <div style="margin-bottom: 10px;">
+            <textarea id="tastingNotes" style="width: 100%; height: 100px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; resize: none; box-sizing: border-box;" placeholder="Log your tasting notes here for future reference..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-copper">Save Note</button>
+        </form>
       </section>
     `,
     chartsInit: `
@@ -180,30 +184,34 @@ const pages = [
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Inbox & Roaster Feed</h2>
         <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="padding: 14px; background: #f8fafc; border-left: 3px solid var(--color-copper); border-radius: 6px;">
+          <a href="404.html" style="display: block; text-decoration: none; padding: 14px; background: #f8fafc; border-left: 3px solid var(--color-copper); border-radius: 6px; transition: transform 0.2s;">
             <h4 style="font-weight: 600; font-size: 0.92rem; color: #333;">Master Roaster Update</h4>
             <p style="font-size: 0.85rem; color: #555; margin-top: 4px;">"We just received an incredible micro-lot from Panama. Exclusive pre-order drops tomorrow for club members!"</p>
-          </div>
-          <div style="padding: 14px; background: #f0fdf4; border-left: 3px solid #16a34a; border-radius: 6px;">
+          </a>
+          <a href="404.html" style="display: block; text-decoration: none; padding: 14px; background: #f0fdf4; border-left: 3px solid #16a34a; border-radius: 6px; transition: transform 0.2s;">
             <h4 style="font-weight: 600; font-size: 0.92rem; color: #166534;">Ticket #442 Resolved</h4>
             <p style="font-size: 0.85rem; color: #15803d; margin-top: 4px;">Your missing tracking link for Order #1024 has been updated in your profile.</p>
-          </div>
+          </a>
         </div>
       </section>
 
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">New Conversation</h2>
-        <form style="display: flex; flex-direction: column; gap: 12px;">
-          <input type="text" placeholder="Subject (e.g. Brew Advice)" style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%;">
-          <textarea placeholder="Type your message..." style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%; height: 100px; resize: none;"></textarea>
-          <button type="button" class="btn btn-copper" style="align-self: flex-start;">Send Message</button>
+        <form id="clientMessageForm" novalidate style="display: flex; flex-direction: column; gap: 12px;">
+          <div>
+            <input type="text" id="msgSubject" placeholder="Subject (e.g. Brew Advice)" required style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%; box-sizing: border-box;">
+          </div>
+          <div>
+            <textarea id="msgBody" placeholder="Type your message..." required style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%; height: 100px; resize: none; box-sizing: border-box;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-copper" style="align-self: flex-start;">Send Message</button>
         </form>
       </section>
 
       <section class="dashboard-section gsap-dash-element" style="background: #1c1714; color: #fff; padding: 32px; border-radius: 12px; margin-bottom: 24px; text-align: center;">
         <h2 style="font-size: 1.4rem; margin-bottom: 12px;">Need Instant Brew Advice?</h2>
         <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 20px;">Check out our comprehensive knowledge base for dial-in guides and extraction tips.</p>
-        <button class="btn" style="background: var(--color-copper); color: #fff;">Visit Knowledge Base</button>
+        <a href="404.html" class="btn" style="background: var(--color-copper); color: #fff; text-decoration: none; display: inline-block;">Visit Knowledge Base</a>
       </section>
     `,
     chartsInit: `
@@ -237,19 +245,19 @@ const pages = [
 
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Personal Profile</h2>
-        <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div><label style="font-size: 0.8rem; color: #555;">First Name</label><input type="text" value="Valued" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
-          <div><label style="font-size: 0.8rem; color: #555;">Last Name</label><input type="text" value="Connoisseur" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
-          <div style="grid-column: 1 / -1;"><label style="font-size: 0.8rem; color: #555;">Email Address</label><input type="email" value="client@stackly.com" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;"></div>
-          <div style="grid-column: 1 / -1;"><button type="button" class="btn btn-copper">Save Changes</button></div>
+        <form id="clientProfileForm" novalidate style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div><label style="font-size: 0.8rem; color: #555; display: block; margin-bottom: 4px;">First Name</label><input type="text" id="settingFirstName" value="Valued" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;"></div>
+          <div><label style="font-size: 0.8rem; color: #555; display: block; margin-bottom: 4px;">Last Name</label><input type="text" id="settingLastName" value="Connoisseur" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;"></div>
+          <div style="grid-column: 1 / -1;"><label style="font-size: 0.8rem; color: #555; display: block; margin-bottom: 4px;">Email Address</label><input type="email" id="settingEmail" value="client@stackly.com" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;"></div>
+          <div style="grid-column: 1 / -1;"><button type="submit" class="btn btn-copper">Save Changes</button></div>
         </form>
       </section>
 
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Security</h2>
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <button class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start;">Change Password</button>
-          <button class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start;">Enable Two-Factor Auth (2FA)</button>
+          <a href="404.html" class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start; text-decoration: none;">Change Password</a>
+          <a href="404.html" class="btn" style="background: #f1f5f9; color: #334155; align-self: flex-start; text-decoration: none;">Enable Two-Factor Auth (2FA)</a>
         </div>
       </section>
 

@@ -680,3 +680,85 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// ==========================================================================
+// DASHBOARD PAGES: NON-SIDEBAR LINKS DIRECT TO 404 & FORM VALIDATION TO 404
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  // Only apply to dashboard pages
+  if (!document.body.classList.contains("dashboard-body")) return;
+
+  // 1. Ensure all non-sidebar links route to 404.html
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    // Preserve sidebar menu links and logo
+    if (link.closest(".dashboard-sidebar")) return;
+
+    // Any other link outside sidebar must direct to 404.html
+    const href = link.getAttribute("href");
+    if (!href || href === "#" || href === "javascript:void(0);" || href !== "404.html") {
+      e.preventDefault();
+      window.location.href = "404.html";
+    }
+  });
+
+  // 2. Universal form validation for all forms on dashboard pages
+  const forms = document.querySelectorAll(".dashboard-main form, .dashboard-layout form");
+  forms.forEach(form => {
+    // Clear errors on field input
+    form.querySelectorAll("input, textarea, select").forEach(field => {
+      field.addEventListener("input", () => {
+        if (typeof window.clearFieldError === "function") {
+          window.clearFieldError(field);
+        }
+      });
+    });
+
+    // Form submission validation
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let isValid = true;
+      let firstInvalidField = null;
+
+      const fields = form.querySelectorAll("input:not([type='hidden']):not([type='submit']):not([type='button']), textarea");
+      fields.forEach(field => {
+        if (field.type === "checkbox" || field.type === "radio") return;
+
+        const val = field.value.trim();
+        const type = (field.getAttribute("type") || field.tagName.toLowerCase()).toLowerCase();
+        const isEmail = type === "email" || (field.id && field.id.toLowerCase().includes("email"));
+        const labelText = field.closest("div")?.querySelector("label")?.textContent || field.placeholder || "Field";
+        const cleanLabel = labelText.replace(/[:*]/g, "").trim();
+
+        if (!val) {
+          isValid = false;
+          if (typeof window.showFieldError === "function") {
+            window.showFieldError(field, `${cleanLabel} is required.`);
+          }
+          if (!firstInvalidField) firstInvalidField = field;
+        } else if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          isValid = false;
+          if (typeof window.showFieldError === "function") {
+            window.showFieldError(field, "Please enter a valid email address.");
+          }
+          if (!firstInvalidField) firstInvalidField = field;
+        } else {
+          if (typeof window.clearFieldError === "function") {
+            window.clearFieldError(field);
+          }
+        }
+      });
+
+      if (!isValid) {
+        if (firstInvalidField) firstInvalidField.focus();
+        return;
+      }
+
+      // Valid submission: redirect to 404 page
+      window.location.href = "404.html";
+    });
+  });
+});
+
+

@@ -54,16 +54,16 @@ const pages = [
       <section class="dashboard-section gsap-dash-element" style="background: #fff; padding: 24px; border-radius: 12px; margin-bottom: 24px; border: 1px solid rgba(28,23,20,0.08);">
         <h2 style="font-size: 1.4rem; color: var(--color-espresso); margin-bottom: 16px;">Inventory Health Grid</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;">
-          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px;">
+          <a href="404.html" style="text-decoration: none; color: inherit; display: block; padding: 16px; border: 1px solid #eee; border-radius: 8px;">
             <h3 style="font-size: 1rem; color: #333;">Midnight Roast</h3>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">Stock: 120 / 500 bags</p>
             <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;"><div style="width: 24%; background: #ef4444; height: 100%; border-radius: 3px;"></div></div>
-          </div>
-          <div style="padding: 16px; border: 1px solid #eee; border-radius: 8px;">
+          </a>
+          <a href="404.html" style="text-decoration: none; color: inherit; display: block; padding: 16px; border: 1px solid #eee; border-radius: 8px;">
             <h3 style="font-size: 1rem; color: #333;">Ethiopia Yirgacheffe</h3>
             <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">Stock: 340 / 400 bags</p>
             <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;"><div style="width: 85%; background: #10b981; height: 100%; border-radius: 3px;"></div></div>
-          </div>
+          </a>
         </div>
       </section>
     `,
@@ -116,15 +116,15 @@ const pages = [
         <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px;">
           <div style="min-width: 250px; background: #f8fafc; padding: 16px; border-radius: 8px;">
             <h3 style="font-size: 0.9rem; color: #475569; margin-bottom: 12px;">To Roast (4)</h3>
-            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8820 - Midnight Roast</div>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8820 - Midnight Roast</a>
           </div>
           <div style="min-width: 250px; background: #f0fdf4; padding: 16px; border-radius: 8px;">
             <h3 style="font-size: 0.9rem; color: #166534; margin-bottom: 12px;">To Pack (12)</h3>
-            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8815 - Ethiopia</div>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8815 - Ethiopia</a>
           </div>
           <div style="min-width: 250px; background: #eff6ff; padding: 16px; border-radius: 8px;">
             <h3 style="font-size: 0.9rem; color: #1e3a8a; margin-bottom: 12px;">Ready to Ship (2)</h3>
-            <div style="background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8790 - Columbia</div>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; background: #fff; padding: 12px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">#ORD-8790 - Columbia</a>
           </div>
         </div>
       </section>
@@ -182,9 +182,9 @@ const pages = [
         <div style="background: #fff; padding: 24px; border-radius: 12px; border: 1px solid rgba(28,23,20,0.08);">
           <h2 style="font-size: 1.2rem; color: var(--color-espresso); margin-bottom: 16px;">Recent Sentiments</h2>
           <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div style="padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"Best espresso blend in India!" - <strong style="color: #10b981;">Positive (98%)</strong></div>
-            <div style="padding: 12px; border-left: 4px solid #fbbf24; background: #f8fafc;">"Delivery took 4 days." - <strong style="color: #fbbf24;">Neutral (50%)</strong></div>
-            <div style="padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"The packaging is stunning." - <strong style="color: #10b981;">Positive (92%)</strong></div>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"Best espresso blend in India!" - <strong style="color: #10b981;">Positive (98%)</strong></a>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; padding: 12px; border-left: 4px solid #fbbf24; background: #f8fafc;">"Delivery took 4 days." - <strong style="color: #fbbf24;">Neutral (50%)</strong></a>
+            <a href="404.html" style="display: block; text-decoration: none; color: inherit; padding: 12px; border-left: 4px solid #10b981; background: #f8fafc;">"The packaging is stunning." - <strong style="color: #10b981;">Positive (92%)</strong></a>
           </div>
         </div>
       </section>
@@ -245,11 +245,15 @@ const pages = [
           <div style="flex: 2; min-width: 250px;">
             <h3 style="font-size: 1rem; color: #333; margin-bottom: 12px;">Upcoming Schedule</h3>
             <ul style="list-style: none; padding: 0;">
-              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
-                <span>10:00 AM - Midnight Roast</span> <span style="font-weight: bold; color: var(--color-copper);">20kg</span>
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                <a href="404.html" style="text-decoration: none; color: inherit; display: flex; justify-content: space-between; width: 100%;">
+                  <span>10:00 AM - Midnight Roast</span> <span style="font-weight: bold; color: var(--color-copper);">20kg</span>
+                </a>
               </li>
-              <li style="padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
-                <span>01:00 PM - Artisan Blend</span> <span style="font-weight: bold; color: var(--color-copper);">15kg</span>
+              <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                <a href="404.html" style="text-decoration: none; color: inherit; display: flex; justify-content: space-between; width: 100%;">
+                  <span>01:00 PM - Artisan Blend</span> <span style="font-weight: bold; color: var(--color-copper);">15kg</span>
+                </a>
               </li>
             </ul>
           </div>
