@@ -4,6 +4,21 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Preloader Logic
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+      }, 400);
+    });
+    setTimeout(() => {
+      if (!preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+      }
+    }, 1500);
+  }
+
   // GSAP Entrance Animation
   if (typeof gsap !== 'undefined') {
     gsap.from('.auth-card', {
@@ -67,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Redirect based on selected role:
       if (loginAs === 'Admin') {
-        window.location.href = 'AdminDashboard.html';
+        window.location.href = '404.html';
       } else {
-        window.location.href = 'ClientDashboard.html';
+        window.location.href = '404.html';
       }
     });
   }
@@ -105,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('stackly_registered_users', JSON.stringify(users));
 
       alert('Account created successfully! Redirecting to Login...');
-      window.location.href = 'Login.html';
+      window.location.href = '404.html';
     });
   }
 });

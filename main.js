@@ -439,4 +439,127 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = '404.html';
     });
   }
+
+  // 11. Menu Page Interactive Enhancements (GSAP Animations & Customization Atelier)
+  function initMenuEnhancements() {
+    const customSection = document.getElementById('customizationSection');
+    if (!customSection) return;
+
+    // ScrollTrigger entrance animations
+    if (typeof gsap !== 'undefined') {
+      if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Customization Atelier section animations disabled to fix visibility glitch
+
+        // Flights and Hoppers animations disabled to fix visibility glitch
+
+
+        // Science section animations disabled to fix visibility glitch
+      }
+    }
+
+    // Atelier Tab Switcher
+    const tabBtns = document.querySelectorAll('.custom-tab-btn');
+    const panels = document.querySelectorAll('.custom-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        panels.forEach(p => {
+          if (p.id === `panel-${targetTab}`) {
+            p.classList.add('active');
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(p.children, 
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out' }
+              );
+            }
+          } else {
+            p.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Interactive Card Click & Dynamic Flavor Radar Updates
+    const customCards = document.querySelectorAll('.custom-card');
+    const flavorFillBody = document.getElementById('flavorFillBody');
+    const flavorFillSweet = document.getElementById('flavorFillSweet');
+    const flavorFillAcidity = document.getElementById('flavorFillAcidity');
+    const flavorFillCrema = document.getElementById('flavorFillCrema');
+    const flavorValBody = document.getElementById('flavorValBody');
+    const flavorValSweet = document.getElementById('flavorValSweet');
+    const flavorValAcidity = document.getElementById('flavorValAcidity');
+    const flavorValCrema = document.getElementById('flavorValCrema');
+    const flavorSelectedTitle = document.getElementById('flavorSelectedTitle');
+    const flavorSelectedPairing = document.getElementById('flavorSelectedPairing');
+
+    customCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const panel = card.closest('.custom-panel');
+        if (panel) {
+          panel.querySelectorAll('.custom-card').forEach(c => c.classList.remove('selected'));
+        }
+        card.classList.add('selected');
+
+        // Micro-bounce
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(card, { scale: 0.97 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
+        }
+
+        const name = card.getAttribute('data-name');
+        const body = card.getAttribute('data-body') || 80;
+        const sweet = card.getAttribute('data-sweetness') || 70;
+        const acid = card.getAttribute('data-acidity') || 40;
+        const crema = card.getAttribute('data-crema') || 85;
+        const pairing = card.getAttribute('data-pairing') || 'Espresso & Filter';
+
+        if (flavorSelectedTitle) flavorSelectedTitle.textContent = name;
+        if (flavorSelectedPairing) {
+          flavorSelectedPairing.innerHTML = `Recommended drink pairing: <strong>${pairing}</strong>. Harmonizes beautifully with our seasonal roast profiles.`;
+        }
+
+        if (flavorValBody) flavorValBody.textContent = `${body}%`;
+        if (flavorValSweet) flavorValSweet.textContent = `${sweet}%`;
+        if (flavorValAcidity) flavorValAcidity.textContent = `${acid}%`;
+        if (flavorValCrema) flavorValCrema.textContent = `${crema}%`;
+
+        if (typeof gsap !== 'undefined') {
+          if (flavorFillBody) gsap.to(flavorFillBody, { width: `${body}%`, duration: 0.5, ease: 'power2.out' });
+          if (flavorFillSweet) gsap.to(flavorFillSweet, { width: `${sweet}%`, duration: 0.5, ease: 'power2.out' });
+          if (flavorFillAcidity) gsap.to(flavorFillAcidity, { width: `${acid}%`, duration: 0.5, ease: 'power2.out' });
+          if (flavorFillCrema) gsap.to(flavorFillCrema, { width: `${crema}%`, duration: 0.5, ease: 'power2.out' });
+        } else {
+          if (flavorFillBody) flavorFillBody.style.width = `${body}%`;
+          if (flavorFillSweet) flavorFillSweet.style.width = `${sweet}%`;
+          if (flavorFillAcidity) flavorFillAcidity.style.width = `${acid}%`;
+          if (flavorFillCrema) flavorFillCrema.style.width = `${crema}%`;
+        }
+      });
+    });
+
+    const applyCustomBtn = document.getElementById('applyCustomBtn');
+    if (applyCustomBtn) {
+      applyCustomBtn.addEventListener('click', () => {
+        const selected = document.querySelector('.custom-card.selected');
+        const itemName = selected ? selected.getAttribute('data-name') : 'Custom Profile';
+        if (typeof showToast === 'function') {
+          showToast(`Customization applied: ${itemName}`);
+        } else {
+          alert(`Customization "${itemName}" added to your drink selection!`);
+        }
+      });
+    }
+  }
+
+  initMenuEnhancements();
 });

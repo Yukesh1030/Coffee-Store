@@ -2544,3 +2544,642 @@ ul, ol {
     height: 32px;
   }
 }
+
+/* ==========================================================================
+   MENU ENHANCEMENTS (4 New Dedicated Sections)
+   ========================================================================== */
+
+/* 1. Customization Atelier (Section 06) */
+.menu-customization-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-tabs-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.custom-tab-btn {
+  background: var(--color-espresso-surface);
+  color: var(--color-cream);
+  border: 1px solid var(--color-espresso-border);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-tab-btn:hover {
+  border-color: var(--color-copper);
+  color: var(--color-copper-light);
+}
+
+.custom-tab-btn.active {
+  background: var(--color-copper);
+  color: #fff;
+  border-color: var(--color-copper);
+  box-shadow: 0 4px 15px var(--color-copper-glow);
+}
+
+.custom-panels-container {
+  margin-bottom: 40px;
+}
+
+.custom-panel {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.custom-panel.active {
+  display: grid;
+}
+
+.custom-card {
+  background: var(--color-espresso-surface);
+  border: 1px solid var(--color-espresso-border);
+  border-radius: 14px;
+  padding: 24px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 115, 51, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.custom-card.selected {
+  border-color: var(--color-copper);
+  background: rgba(184, 115, 51, 0.08);
+  box-shadow: 0 0 0 1px var(--color-copper), 0 8px 24px var(--color-copper-glow);
+}
+
+.custom-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.custom-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(184, 115, 51, 0.15);
+  color: var(--color-copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.custom-card-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(244, 235, 221, 0.08);
+  color: var(--color-cream);
+  border: 1px solid var(--color-espresso-border);
+}
+
+.custom-card.selected .custom-card-badge {
+  background: var(--color-copper);
+  color: #fff;
+  border-color: var(--color-copper);
+}
+
+.custom-card-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-cream);
+  margin-bottom: 8px;
+}
+
+.custom-card-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-light-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.custom-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--color-copper);
+  border-top: 1px solid rgba(244, 235, 221, 0.06);
+  padding-top: 12px;
+}
+
+.custom-flavor-preview-box {
+  background: var(--color-espresso-surface);
+  border: 1px solid var(--color-espresso-border);
+  border-radius: 16px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.flavor-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.flavor-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flavor-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--color-cream);
+}
+
+.flavor-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(244, 235, 221, 0.1);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.flavor-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-copper), #e59850);
+  border-radius: var(--radius-pill);
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.flavor-summary-card {
+  border-left: 2px solid var(--color-copper);
+  padding-left: 20px;
+}
+
+/* 2. Curated Tasting Flights (Section 07) */
+.menu-flights-section {
+  padding: 100px 0;
+}
+
+.flights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.flight-card {
+  background: #ffffff;
+  border: 1px solid rgba(28, 23, 20, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.flight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-copper);
+}
+
+.flight-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-copper);
+  margin-bottom: 12px;
+}
+
+.flight-card-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: var(--color-espresso);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.flight-card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.flight-elements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--color-cream-soft);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.flight-element-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-espresso);
+}
+
+.flight-element-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-copper);
+  flex-shrink: 0;
+}
+
+.flight-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(28, 23, 20, 0.06);
+  padding-top: 18px;
+}
+
+.flight-price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+/* 3. Live Hoppers (Section 08) */
+.menu-hoppers-section {
+  padding: 100px 0;
+  background: var(--color-espresso);
+}
+
+.hopper-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(244, 235, 221, 0.06);
+  border: 1px solid var(--color-espresso-border);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-cream);
+  margin-bottom: 20px;
+}
+
+.pulsing-green-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulseGreen 2s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hoppers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.hopper-card {
+  background: var(--color-espresso-surface);
+  border: 1px solid var(--color-espresso-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.hopper-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(184, 115, 51, 0.6);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.hopper-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.hopper-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hopper-card:hover .hopper-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.hopper-slot-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(28, 23, 20, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--color-copper-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(184, 115, 51, 0.3);
+}
+
+.hopper-score-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--color-copper);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.hopper-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.hopper-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-cream);
+  margin-bottom: 6px;
+}
+
+.hopper-card-region {
+  font-size: 0.84rem;
+  color: var(--color-copper);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hopper-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: rgba(244, 235, 221, 0.03);
+  border: 1px solid rgba(244, 235, 221, 0.06);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.hopper-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hopper-spec-key {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-light-muted);
+}
+
+.hopper-spec-val {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-cream);
+}
+
+.hopper-notes-pill {
+  font-size: 0.82rem;
+  color: var(--color-cream-soft);
+  background: rgba(184, 115, 51, 0.12);
+  border-left: 2px solid var(--color-copper);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+.hopper-dial-metrics {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(244, 235, 221, 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--color-text-light-muted);
+}
+
+.hopper-dial-metrics span strong {
+  color: var(--color-copper-light);
+}
+
+/* 4. Science of Extraction (Section 09) */
+.menu-science-section {
+  padding: 100px 0;
+  background: var(--color-cream);
+}
+
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.science-card {
+  background: #ffffff;
+  border: 1px solid rgba(28, 23, 20, 0.08);
+  border-radius: 16px;
+  padding: 30px 24px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.science-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-copper);
+}
+
+.science-stat-badge {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-copper);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.science-stat-badge .stat-unit {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-espresso);
+  margin-left: 4px;
+}
+
+.science-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-espresso);
+  margin-bottom: 10px;
+}
+
+.science-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.science-tags-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.science-micro-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--color-cream-soft);
+  color: var(--color-espresso);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(28, 23, 20, 0.06);
+}
+
+.science-action-banner {
+  background: var(--color-espresso);
+  border-radius: 18px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+}
+
+.science-banner-text h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-cream);
+  margin-bottom: 6px;
+}
+
+.science-banner-text p {
+  color: var(--color-text-light-muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0;
+}
+
+.science-banner-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Responsiveness for Menu Sections */
+@media (max-width: 768px) {
+  .menu-customization-section,
+  .menu-flights-section,
+  .menu-hoppers-section,
+  .menu-science-section {
+    padding: 70px 0;
+  }
+  
+  .custom-flavor-preview-box {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .flavor-summary-card {
+    border-left: none;
+    border-top: 2px solid var(--color-copper);
+    padding-left: 0;
+    padding-top: 16px;
+  }
+  
+  .science-action-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+  }
+  
+  .science-banner-actions {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .science-banner-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-tab-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  
+  .flight-card,
+  .hopper-card-body,
+  .science-card {
+    padding: 20px 16px;
+  }
+}
