@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Redirect based on selected role:
       if (loginAs === 'Admin') {
-        window.location.href = '404.html';
+        window.location.href = 'AdminDashboard.html';
       } else {
-        window.location.href = '404.html';
+        window.location.href = 'ClientDashboard.html';
       }
     });
   }
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('stackly_registered_users', JSON.stringify(users));
 
       alert('Account created successfully! Redirecting to Login...');
-      window.location.href = '404.html';
+      window.location.href = 'Login.html';
     });
   }
 });

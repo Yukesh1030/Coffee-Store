@@ -1877,6 +1877,13 @@ ul, ol {
   transition: border-color 0.2s;
 }
 
+.auth-input-wrapper .auth-input {
+  /* Default handled above, but if there's a toggle button we need right padding */
+}
+.auth-input-wrapper:has(.password-toggle-btn) .auth-input {
+  padding-right: 42px;
+}
+
 .auth-select {
   padding-left: 42px;
   appearance: none;
@@ -1902,9 +1909,9 @@ ul, ol {
   font-size: 0.8rem;
   color: #10b981;
   font-weight: 600;
-  float: right;
-  margin-top: -24px;
-  margin-bottom: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .auth-forgot-link:hover {
   text-decoration: underline;
