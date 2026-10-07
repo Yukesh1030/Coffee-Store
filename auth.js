@@ -4,6 +4,33 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Global form validation helpers
+  window.showFieldError = window.showFieldError || function(inputElement, message) {
+    if (!inputElement) return;
+    window.clearFieldError(inputElement);
+    const p = document.createElement('p');
+    p.className = 'field-error-msg';
+    p.style.color = '#ef4444';
+    p.style.fontSize = '0.85rem';
+    p.style.marginTop = '6px';
+    p.style.marginBottom = '0';
+    p.style.fontWeight = '500';
+    p.textContent = message;
+    
+    const wrapper = inputElement.closest('.auth-input-wrapper') || inputElement;
+    wrapper.parentNode.insertBefore(p, wrapper.nextSibling);
+    inputElement.style.borderColor = '#ef4444';
+  };
+
+  window.clearFieldError = window.clearFieldError || function(inputElement) {
+    if (!inputElement) return;
+    const wrapper = inputElement.closest('.auth-input-wrapper') || inputElement;
+    const next = wrapper.nextElementSibling;
+    if (next && next.classList.contains('field-error-msg')) {
+      next.remove();
+    }
+    inputElement.style.borderColor = '';
+  };
   // Preloader Logic
   const preloader = document.getElementById('preloader');
   if (preloader) {
@@ -59,18 +86,27 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const loginAs = document.getElementById('loginAs').value;
-      const email = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value;
+      const emailInput = document.getElementById('loginEmail');
+      const passwordInput = document.getElementById('loginPassword');
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      window.clearFieldError(emailInput);
+      window.clearFieldError(passwordInput);
+
+      let isValid = true;
 
       if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
+        window.showFieldError(emailInput, 'Please enter a valid email address.');
+        isValid = false;
       }
 
       if (!password || password.length < 4) {
-        alert('Please enter your password (minimum 4 characters).');
-        return;
+        window.showFieldError(passwordInput, 'Please enter your password (minimum 4 characters).');
+        isValid = false;
       }
+
+      if (!isValid) return;
 
       // Store current user session in localStorage
       localStorage.setItem('stackly_current_user', JSON.stringify({
@@ -95,31 +131,42 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const signupAs = document.getElementById('signupAs').value;
-      const name = document.getElementById('signupName').value.trim();
-      const email = document.getElementById('signupEmail').value.trim();
-      const password = document.getElementById('signupPassword').value;
+      const nameInput = document.getElementById('signupName');
+      const emailInput = document.getElementById('signupEmail');
+      const passwordInput = document.getElementById('signupPassword');
+      
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      window.clearFieldError(nameInput);
+      window.clearFieldError(emailInput);
+      window.clearFieldError(passwordInput);
+
+      let isValid = true;
 
       if (!name) {
-        alert('Please enter your full name.');
-        return;
+        window.showFieldError(nameInput, 'Please enter your full name.');
+        isValid = false;
       }
 
       if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
+        window.showFieldError(emailInput, 'Please enter a valid email address.');
+        isValid = false;
       }
 
       if (!password || password.length < 6) {
-        alert('Please provide a secure password with at least 6 characters.');
-        return;
+        window.showFieldError(passwordInput, 'Please provide a secure password with at least 6 characters.');
+        isValid = false;
       }
+
+      if (!isValid) return;
 
       // Save user record
       const users = JSON.parse(localStorage.getItem('stackly_registered_users') || '[]');
       users.push({ name, email, role: signupAs, date: new Date().toISOString() });
       localStorage.setItem('stackly_registered_users', JSON.stringify(users));
 
-      alert('Account created successfully! Redirecting to Login...');
       window.location.href = 'Login.html';
     });
   }

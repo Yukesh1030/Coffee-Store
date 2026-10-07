@@ -3,6 +3,33 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Global form validation helpers
+  window.showFieldError = function(inputElement, message) {
+    if (!inputElement) return;
+    window.clearFieldError(inputElement);
+    const p = document.createElement('p');
+    p.className = 'field-error-msg';
+    p.style.color = '#ef4444'; // Red color
+    p.style.fontSize = '0.85rem';
+    p.style.marginTop = '6px';
+    p.style.marginBottom = '0';
+    p.style.fontWeight = '500';
+    p.textContent = message;
+    
+    const wrapper = inputElement.closest('.auth-input-wrapper') || inputElement;
+    wrapper.parentNode.insertBefore(p, wrapper.nextSibling);
+    inputElement.style.borderColor = '#ef4444';
+  };
+
+  window.clearFieldError = function(inputElement) {
+    if (!inputElement) return;
+    const wrapper = inputElement.closest('.auth-input-wrapper') || inputElement;
+    const next = wrapper.nextElementSibling;
+    if (next && next.classList.contains('field-error-msg')) {
+      next.remove();
+    }
+    inputElement.style.borderColor = '';
+  };
   // 1. Preloader Logic
   const preloader = document.getElementById('preloader');
   if (preloader) {
@@ -404,39 +431,44 @@ document.addEventListener('DOMContentLoaded', () => {
       const subject = subjectInput ? subjectInput.value.trim() : '';
       const message = messageInput ? messageInput.value.trim() : '';
 
+      window.clearFieldError(nameInput);
+      window.clearFieldError(emailInput);
+      window.clearFieldError(phoneInput);
+      window.clearFieldError(subjectInput);
+      window.clearFieldError(messageInput);
+
+      let isValid = true;
+
       if (!name || name.length < 2) {
-        alert('Please enter your full name (at least 2 characters).');
-        if (nameInput) nameInput.focus();
-        return;
+        window.showFieldError(nameInput, 'Please enter your full name (at least 2 characters).');
+        isValid = false;
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email || !emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        if (emailInput) emailInput.focus();
-        return;
+        window.showFieldError(emailInput, 'Please enter a valid email address.');
+        isValid = false;
       }
 
       const digits = phone.replace(/\D/g, '');
       if (!phone || digits.length < 10) {
-        alert('Please enter a valid phone number (at least 10 digits).');
-        if (phoneInput) phoneInput.focus();
-        return;
+        window.showFieldError(phoneInput, 'Please enter a valid phone number (at least 10 digits).');
+        isValid = false;
       }
 
       if (!subject || subject.length < 2) {
-        alert('Please enter an inquiry subject.');
-        if (subjectInput) subjectInput.focus();
-        return;
+        window.showFieldError(subjectInput, 'Please enter an inquiry subject.');
+        isValid = false;
       }
 
       if (!message || message.length < 5) {
-        alert('Please enter a message (at least 5 characters).');
-        if (messageInput) messageInput.focus();
-        return;
+        window.showFieldError(messageInput, 'Please enter a message (at least 5 characters).');
+        isValid = false;
       }
 
-      window.location.href = '404.html';
+      if (isValid) {
+        window.location.href = '404.html';
+      }
     });
   }
 
